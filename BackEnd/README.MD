@@ -1,8 +1,9 @@
-# **Retruck-Back-End** 
-Desenvolvido em ASP.NET Core 6.0 implementa as regras de negócio do Retruck. Está conectado com uma base de  dados SQL Server :computer:.
+# **Retruck-Back-End**  
+Developed in ASP.NET Core 6.0, the back-end implements the business rules of Retruck.  
+It is connected to a SQL Server database. :computer:  
 
-# **Serviços usados** 
-### FireBase :blue_book: <br> 
-### Google Maps (Distance Matrix) :postbox: <br> 
-### Holidays API :date:  <br> 
-### Position Stack Api :outbox_tray: <br>
+# **Services Used**  
+### FireBase :blue_book:  
+### Google Maps (Distance Matrix) :postbox:  
+### Holidays API :date:  
+### Position Stack API :outbox_tray:  
