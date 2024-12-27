@@ -1,8 +1,8 @@
-# **Retruck-Front-End** 
-Aplicação React que funciona como o front web para o Manager e para o SuperAdmin. 
+# **Retruck-Front-End**  
+A React application that serves as the web front-end for the Manager and SuperAdmin.  
 
-# **Bibliotecas usadas** 
-### React Chart :computer: <br> 
-### React Routing :computer: <br>
-### React Maps :computer:<br>
-### EmailSenderjs :e-mail:<br>
+# **Libraries Used**  
+### React Chart :computer:  
+### React Routing :computer:  
+### React Maps :computer:  
+### EmailSenderjs :e-mail:  
