@@ -59,10 +59,9 @@ public class TruckBreakDownsRepository : ITruckBreakDownsRepository
     }
 
     /// <inheritdoc/>
-    public async Task<TruckBreakDowns> getTruckBreakDowns(Guid id)
+  public async Task<TruckBreakDowns> GetTruckBreakDownsAsync(Guid id)
     {
-        var truckBreackDown = await context.TruckBreakDowns.FirstOrDefaultAsync(truck => truck.id == id);
-        return truckBreackDown != null ? truckBreackDown : null;
+        return await context.TruckBreakDowns.FirstOrDefaultAsync(truck => truck.id == id);
     }
 
     /// <inheritdoc/>
