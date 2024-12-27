@@ -3,8 +3,7 @@
 O projeto consiste num sistema de apoio à decisão para empresas de transportes que trabalham com serviços que lhes são propostos pelos clientes. Nesse sentido o sistema irá permitir que os clientes registem os seus transportes sendo que a análise destes será feita de uma forma automatizada, reduzindo o tempo de decisão e garantindo que o camião selecionado é o mais indicado. 
 
 ## **Arquitetura do Projeto**
- <img title="Logotipo" alt="Logo" src="https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/raw/master/Documenta%C3%A7%C3%A3o/Diagrama_Classes_e_Arquitetura/Arquitetura.PNG" width="500">
-  <img title="Logotipo" alt="Logo" src="https://github.com/hugosilva12/retruck/blob/main/Doc/Diagrama_Classes_e_Arquitetura/ArquiteturaView.JPG" width="500">
+<img title="Logotipo" alt="Logo" src="https://github.com/hugosilva12/retruck/blob/main/Doc/Diagrama_Classes_e_Arquitetura/ArquiteturaView.JPG" width="500">
 
 ## **Tutorial de Instalação**
 Para iniciar o projeto devem ser seguidos os seguintes passos:  
