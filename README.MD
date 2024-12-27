@@ -1,8 +1,8 @@
 # :truck:
 # **Retruck** 
-O projeto consiste num sistema de apoio à decisão para empresas de transportes que trabalham com serviços que lhes são propostos pelos clientes. Nesse sentido o sistema irá permitir que os clientes registem os seus transportes sendo que a análise destes será feita de uma forma automatizada, reduzindo o tempo de decisão e garantindo que o camião selecionado é o mais indicado. 
+The project is a decision-support system designed for transport companies handling services proposed by their clients. The system allows clients to register their transport requests, which are analyzed automatically, reducing decision-making time and ensuring the most suitable truck is selected.
 
-## **Arquitetura do Projeto**
+## **Project Architecture**
 <img title="Logotipo" alt="Logo" src="https://github.com/hugosilva12/retruck/blob/main/Doc/Diagrama_Classes_e_Arquitetura/ArquiteturaView.JPG" width="500">
 
 ## **Tutorial de Instalação**
@@ -27,30 +27,8 @@ Seguir os seguintes passos:
 3. Executar Testes. <br>
 A base de dados dos testes é criada automaticamente.
 
-# **Link Repositorio**
-https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/tree/master
-
-## **User Stories**
-##### [**&nbsp;&nbsp;&nbsp;Registo/Login**](https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/wikis/Login/Registo)
-##### [**&nbsp;&nbsp;&nbsp;Gestão de Organizações**](https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/wikis/Gestão-de-Organizações)
-##### [**&nbsp;&nbsp;&nbsp;Registo de Ausências**](https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/wikis/Registar-Aus%C3%AAncias)
-##### [**&nbsp;&nbsp;&nbsp;Decisão sobre Ausências**](https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/wikis/Tomar-decis%C3%A3o-sobre-Aus%C3%AAncias)
-##### [**&nbsp;&nbsp;&nbsp;Gestão de camiões**](https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/wikis/Gest%C3%A3o-Cami%C3%B5es)
-##### [**&nbsp;&nbsp;&nbsp;Gestão de Avarias**](https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/wikis/Gest%C3%A3o-de-Avarias)
-##### [**&nbsp;&nbsp;&nbsp;Criação e listagem de Transportes**](https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/wikis/Criar/Listar-Transportes)
-##### [**&nbsp;&nbsp;&nbsp;Análise de Transportes e seleção de camiões**](https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/wikis/An%C3%A1lise-de-Transportes)
-##### [**&nbsp;&nbsp;&nbsp;Parametrização do modelo de análise**](https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/wikis/Parametriza%C3%A7%C3%A3o-do-modelo-de-an%C3%A1lise-de-transportes-e-sele%C3%A7%C3%A3o-de-cami%C3%B5es)
-##### [**&nbsp;&nbsp;&nbsp;Gestão de Serviços**](https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/wikis/Gest%C3%A3o-Servi%C3%A7os)
-##### [**&nbsp;&nbsp;&nbsp;Informação para Dashboard**](https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/wikis/Dashboard)
-
 ## **GitLab**
  Usado para controlo de versões, definição de tarefas, definição de user stories.
 
- 
-## **Tabela de Esforço**
- [**&nbsp;Tabela com que contém os pesos que foram sendo atribuídos às issues**](https://gitlab.estg.ipp.pt/8180378-retruck/retruck-lds/-/wikis/Tabela-de-Esfor%C3%A7o)<br>
-
-
-
-# Aluno
+# Autor
 8180378-Hugo Silva
