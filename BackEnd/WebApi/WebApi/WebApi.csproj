@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <DocumentationFile>C:\Users\Hugo\Desktop\Lds\retruck-lds\BackEnd\WebApplication1\WebApplication1\Doc\Doc.xml</DocumentationFile>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <RootNamespace>WebApplication1</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="11.0.1" />
+        <PackageReference Include="FireSharp" Version="2.0.4" />
+        <PackageReference Include="Google.Apis" Version="1.57.0" />
+        <PackageReference Include="GoogleMapServices" Version="1.3.1" />
+        <PackageReference Include="HtmlAgilityPack" Version="1.11.43" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.Core" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.6" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.6" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.0-preview.4.22229.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="NSwag.Annotations" Version="13.16.0" />
+        <PackageReference Include="Scrypt.NET" Version="1.3.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="ApiTests" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="Services\IDistanceMatrixService.cs" />
+        <Compile Remove="Repository\Implementations\ServiceRepository.cs" />
+        <Compile Remove="Services\IReviewService.cs" />
+        <Compile Remove="Services\IDistance.cs" />
+        <Compile Remove="Services\DistanceService.cs" />
+        <Compile Remove="Services\ReviewService.cs" />
+        <Compile Remove="Global\UtilsModels\ModelPricesFuel.cs" />
+        <Compile Remove="Global\UtilsModels\FireBaseModel.cs" />
+        <Compile Remove="Global\Enumerations\ServiceStatus.cs" />
+        <Compile Remove="Global\UtilsModels\ServiceModelFireBase.cs" />
+        <Compile Remove="DTOS\Write\ServiceWriteDto.cs" />
+        <Compile Remove="DTOS\Read\ServiceReadDto.cs" />
+        <Compile Remove="DTOS\Read\ReviewTransportReadDto.cs" />
+        <Compile Remove="DTOS\Read\TypeTruckReadDto.cs" />
+        <Compile Remove="DTOS\Read\UserDetailReadDto.cs" />
+        <Compile Remove="Models\ServiceTransport.cs" />
+        <Compile Remove="Controllers\TestController.cs" />
+        <Compile Remove="Controllers\ITest.cs" />
+        <Compile Remove="DTOS\Write\UserUpdateDto.cs" />
+        <Compile Include="dtos\write\ServiceWriteDto.cs" />
+        <Compile Include="global\enumerations\ServiceStatus.cs" />
+        <Compile Include="models\ServiceTransport.cs" />
+        <Compile Include="repository\implementations\ServiceRepository.cs" />
+        <Compile Remove="dtos\global\ServiceInProgressAvailable.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Remove="Photos\277584044_3225329104374597_4187633566597035968_n.jpg" />
+        <None Remove="Photos\UserRepository.png" />
+        <None Remove="Photos\Image Pasted at 2022-7-19 11-24.png" />
+        <None Remove="Photos\image.png" />
+        <None Remove="Photos\caminhao-de-mercadoria-veiculos-camioes-1516822.jpg" />
+        <None Remove="Photos\anonymous.png" />
+        <None Remove="Photos\truck10.png" />
+        <None Remove="Photos\truck6.png" />
+        <None Remove="Photos\truck5.png" />
+        <None Remove="Photos\truck4.png" />
+        <None Remove="Photos\hugo.jpg" />
+        <None Remove="Photos\Capturar.JPG" />
+        <None Remove="Photos\1831534.png" />
+        <None Remove="Photos\kisspng-john-deere-limited-harvester-caterpillar-inc-bull-harvester-5b0d924393aaf8.1554126115276160676049.jpg" />
+        <None Remove="Photos\Arquitetura.PNG" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="doc" />
+    </ItemGroup>
+
+</Project>

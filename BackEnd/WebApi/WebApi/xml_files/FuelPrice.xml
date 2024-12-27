@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<prices>
+    <post>
+        <name>GALP</name>
+        <price>1,98</price>
+    </post>
+    <post>
+        <name>CEPSA</name>
+        <price>2,109</price>
+    </post>
+    <post>
+        <name>BP</name>
+        <price>2,004</price>
+    </post>
+
+</prices>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Login Sample</string>
+    <string name="register">REGISTER</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="signup_login_hint">Already have an account? Sign In</string>
+    <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+        <string-array name="planets_array">
+            <item>Clique numa Opção</item>
+            <item>Familia</item>
+            <item>Doença</item>
+            <item>Férias</item>
+        </string-array>
+
+    <string-array name="truck_array">
+        <item>Clique numa Opção</item>
+        <item>REFRIGERATOR_TRUCK</item>
+        <item>DUMP_TRUCK</item>
+        <item>CISTERN_TRUCK</item>
+        <item>CONTAINER_TRUCK</item>
+    </string-array>
+</resources>

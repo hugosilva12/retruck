@@ -1,0 +1,32 @@
+variables:
+ GIT_DEPTH: 10
+ GIT_SSL_NO_VERIFY: "true"
+ GIT_STRATEGY: clone
+
+stages:
+ - build
+ - test
+
+before_script:
+  - echo "Start Automated Build and Test "
+
+buildBackend:
+ image: mcr.microsoft.com/dotnet/sdk:6.0
+ stage: build
+ script:
+  - dotnet build "BackEnd/WebApi/WebApi/WebApi.csproj"
+ rules:
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+
+job_test:
+ image: mcr.microsoft.com/dotnet/sdk:6.0
+ stage: test
+ script:
+  - dotnet test "BackEnd/WebApi/WebApi/WebApi.csproj"
+ rules:
+  - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+
+after_script:
+  - echo "End Automated Build and Test"
+ 
+

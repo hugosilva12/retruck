@@ -1,0 +1,14 @@
+//Insertswwwwwwwwwwwwwwwww
+use ReTruck;
+Insert into Organization(id,name,enable,addresses,vatin) values('0180adf7-84ee-4255-ad55-69b15bf13c06','Demo',1,'Amarante',0);
+Insert into [User](id,organizationid,username,name,email,password,role,photofilename,userState) values('59E1108A-8102-4883-475E-08DA6BFB5528','0180ADF7-84EE-4255-AD55-69B15BF13C06','root','root','none','$s2$16384$8$1$uY6V8H6gj5MAulay5XNHI1e6dVVWCxR/wXSSDbfNF6c=$u46ZyKSZpXuuCPwXk04Qqw5bvlwmZUTyP4CINaFX4dQ=',3,'https://localhost:7226/Photos/root.png',0);
+
+//Delete
+Delete  from Transport where capacity != 1
+
+
+//Parametros que irei precisar
+Insert into TransportReviewParameters values ('315C2500-37F3-46F0-4201-08DA8456F66B',30,100,60,1.25,0.25);
+
+Select * from [User];
+Delete from [User] where id = 'C7868A6C-3AA6-4C8B-CC80-08DA7E48E567';

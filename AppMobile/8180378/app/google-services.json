@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "58349068046",
+    "firebase_url": "https://testapsnet-7b02e-default-rtdb.firebaseio.com",
+    "project_id": "testapsnet-7b02e",
+    "storage_bucket": "testapsnet-7b02e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58349068046:android:05908341e4f302b310c15f",
+        "android_client_info": {
+          "package_name": "com.example.a8180378"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58349068046-lhqdcngv3679q5ujmun8iphqqqb18efo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWdiECqeZBlQzAwRHzJKoIJhjIkJgKygk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "58349068046-lhqdcngv3679q5ujmun8iphqqqb18efo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

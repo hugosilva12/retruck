@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Hugo/Desktop/Lds/retruck-lds/AppMobile/8180378/app/src/main/res/layout/absence_activity.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/Hugo/Desktop/Lds/retruck-lds/AppMobile/8180378/app/src/main/res/layout/activity_main.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/Hugo/Desktop/Lds/retruck-lds/AppMobile/8180378/app/src/main/res/layout/customer_activity.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/Hugo/Desktop/Lds/retruck-lds/AppMobile/8180378/app/src/main/res/layout/home_activity.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/Hugo/Desktop/Lds/retruck-lds/AppMobile/8180378/app/src/main/res/layout/item_spinner.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/Hugo/Desktop/Lds/retruck-lds/AppMobile/8180378/app/src/main/res/layout/item_spinner_smartphone.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/Hugo/Desktop/Lds/retruck-lds/AppMobile/8180378/app/src/main/res/layout/list_transports.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/Hugo/Desktop/Lds/retruck-lds/AppMobile/8180378/app/src/main/res/layout/registration_transport_activity.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/Hugo/Desktop/Lds/retruck-lds/AppMobile/8180378/app/src/main/res/layout/services_activity.xml" value="0.24547101449275363" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/drawable-v24/login_button.xml" value="0.2265" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/drawable-v24/login_button_bk.xml" value="0.12" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/drawable/ic_launcher_background.xml" value="0.201" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/drawable/ic_login_bk.xml" value="0.199" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/drawable/login_button.xml" value="0.1" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/drawable/login_shape_bk.xml" value="0.201" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/layout/absence_activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/layout/customer_activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/layout/home_activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/layout/item_spinner.xml" value="0.17291666666666666" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/layout/item_spinner_smartphone.xml" value="0.17291666666666666" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/layout/layout_register.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/layout/list_transports.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/layout/registration_transport_activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/layout/services_activity.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/menu/navigation.xml" value="0.2046875" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2265" />
+        <entry key="..\:/Users/hugod/Downloads/hugo_/hugo/8180378/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2025" />
+      </map>
+    </option>
+  </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/Doc" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

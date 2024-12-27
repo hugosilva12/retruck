@@ -1,0 +1,3353 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:WebApplication1.Context.Global.State">
+            <summary>
+            Represents the State enumeration
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Controllers.Config.TransportReviewParametersController">
+            <summary>
+            This controller manage the algorithm settings.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.Config.TransportReviewParametersController.addTransportReviewParameters(WebApplication1.DTOS.TransportReviewParametersDto)">
+            <summary>
+            This endpoint adds a <see cref="T:WebApplication1.Models.TransportReviewParameters"/> to the database for transport review.
+            </summary>
+            <param name="transportReviewParameters">to be added</param>
+            <returns> <see cref="T:WebApplication1.DTOS.TransportReviewParametersDto"/> with the parameters</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.Config.TransportReviewParametersController.getTransportReviewParameters">
+            <summary>
+            This endpoint gets the parameters for transport review.
+            </summary>
+            <returns> <see cref="T:WebApplication1.DTOS.TransportReviewParametersDto"/> with the parameters</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.Config.TransportReviewParametersController.updateTransportReviewParameters(System.Guid,WebApplication1.DTOS.TransportReviewParametersDto)">
+            <summary>
+            This endpoint updates the parameters for transport review.
+            </summary>
+            <param name="transportReviewParameters">to be updated</param>
+            <param name="id">The <see cref="T:System.Guid"/> of the <see cref="T:WebApplication1.Models.TransportReviewParameters"/> to update</param>
+            <returns> Ok if the parameters have been updated </returns>
+        </member>
+        <member name="T:WebApplication1.Controllers.Photos.PhotosController">
+            <summary>
+            This controller manage the upload of photos.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.Photos.PhotosController.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment,WebApplication1.Repository.IPathPhotoRepository)">
+            <summary>
+            This constructor inject the pathphoto repository  to be use by the photos controller.
+            </summary>
+            <param name="userRepository"></param>
+            <param name="env"></param>
+            <param name="image"></param>
+        </member>
+        <member name="M:WebApplication1.Controllers.Photos.PhotosController.saveFile">
+            <summary>
+            This endpoint adds a new photo in database.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.Photos.PhotosController.saveFileTruck">
+            <summary>
+            This endpoint adds a new photo in database.
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Controllers.TestController">
+            <summary>
+            This controller is specifically used for integration tests
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.TestController.#ctor(WebApplication1.Repository.IUserRepository,AutoMapper.IMapper,WebApplication1.Global.Utils.IDistanceService)">
+            <summary>
+            This constructor inject the user repository repository to be use by the user controller.
+            </summary>
+            <param name="userRepository">user repository</param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:WebApplication1.Controllers.TestController.addUser(WebApplication1.DTOS.RegisterUserDto)">
+            <summary>
+            This endpoint returns adds a <see cref="T:WebApplication1.Models.User"/> to the database, is only used in integration tests.
+            </summary>
+            <param name="user">to be added</param>
+            <param name="user">organization id</param>
+            <returns>The added <see cref="T:WebApplication1.Models.User"/> </returns>
+        </member>
+        <member name="T:WebApplication1.Controllers.SelectionAndAnalysisAlgorithmController">
+            <summary>
+            This controller contains the method that analyzes the transports
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.SelectionAndAnalysisAlgorithmController.#ctor(WebApplication1.Services.ISelectionAlgorithmService)">
+            <summary>
+            This constructor inject the service to be use by the SelectionAndAnalysisAlgorithm controller.
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:WebApplication1.Controllers.SelectionAndAnalysisAlgorithmController.getInformationAboutTransport(System.Guid)">
+            <summary>
+            This endpoint analyzes a transport and selects the best truck or trucks to do it.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of transport to be analyzed</param>
+            <returns><see cref="T:WebApplication1.DTOS.Read.ReviewTransportDto" /> with the results of the analysis</returns>
+        </member>
+        <member name="T:WebApplication1.Controllers.ServiceController">
+            <summary>
+            This controller manage services.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.ServiceController.#ctor(WebApplication1.Repository.Interfaces.IServiceRepository,WebApplication1.Repository.ITransportRepository,WebApplication1.Repository.ITruckRepository,WebApplication1.Repository.Interfaces.IServiceCoordRepository,WebApplication1.Services.IPositionStackService,WebApplication1.Global.Utils.IDistanceService)">
+            <summary>
+            This constructor inject all the necessary repositories to be use by the service controller.
+            </summary>
+            <param name="serviceTransportRepository">service repository</param>
+            <param name="truckRepository"> truck repository</param>
+            <param name="transportRepository"> transport repository</param>
+            <param name="serviceCoordRepository"> service coordinates repository</param>
+            <param name="positionStackService"> position stack service </param>
+        </member>
+        <member name="M:WebApplication1.Controllers.ServiceController.addService(WebApplication1.DTOS.ServiceWriteDto)">
+            <summary>
+            This endpoint adds a new service in sql database and firebase.
+            </summary>
+            <param name="serviceWriteDto">to be added</param>
+            <returns>The added <see cref="!:Service"/>, null if the data matches an already existing service</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.ServiceController.getAllServices">
+            <summary>
+            This method gets all services
+            </summary>
+            <returns> List with all <see cref="T:WebApplication1.DTOS.Read.ServiceTransportReadDto"/></returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.ServiceController.uploadToFirebase(WebApplication1.Models.ServiceTransport)">
+            <summary>
+            This method inserts a new transport service into the firebase database
+            </summary>
+            <returns>True if the service have been inserted, False otherwise</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.ServiceController.updateStateService">
+            <summary>
+            This endpoint updates the status of all services in progress.
+            </summary>
+            <returns>List of all updated services</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.ServiceController.getAllServicesCoordFromFirebase">
+            <summary>
+            This endpoint gets all coordinates from firebase database and insert them into the sql database.
+            </summary>
+            <returns>List with all coordinates inserted</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.ServiceController.getService(System.Guid)">
+            <summary>
+            This endpoint returns the specific service of the given id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of the <see cref="T:WebApplication1.Models.ServiceTransport"/> to find</param>
+            <returns>Returns the service <see cref="T:WebApplication1.DTOS.Read.ServiceTransportReadDto"/>, null if the id does not match a registered service</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.ServiceController.getAllCoordinatesByServiceId(System.Guid,System.Collections.Generic.List{WebApplication1.DTOS.Read.CoordReadDto})">
+            <summary>
+            This method returns all coordinates associated with a specific service.
+            </summary>
+            <param name="id"> id of service</param>
+            <returns>List of coordinates </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.ServiceController.getAllCoordinatesStaticPoints(WebApplication1.DTOS.Read.ServiceTransportReadDto)">
+            <summary>
+            This method gets all coordinates associated with a service.
+            </summary>
+            <param name="serviceTransportRead"> service for which all coordinates will be obtained</param>
+            <returns>List of coordinates, <see cref="!:List"/> of  <see cref="T:WebApplication1.DTOS.Read.CoordReadDto"/> </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.ServiceController.getAllProfitServices">
+            <summary>
+            This endpoint returns the total profit of all transports performed.
+            </summary>
+            <returns>Double with value</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.ServiceController.getServiceInProgressAvailable(WebApplication1.DTOS.BasicDto)">
+            <summary>
+            This endpoint returns all services in progress that are close to a certain location of another transport
+            </summary>
+            <param name="id">The <see cref="T:WebApplication1.DTOS.BasicDto"/> with the ID of <see cref="T:WebApplication1.Models.Transport"/> to find</param>
+            <returns><see cref="!:List"/> of  <see cref="T:WebApplication1.DTOS.Read.ServiceTransportReadDto"/> with the trucks found</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.ServiceController.updateService(System.Guid,WebApplication1.DTOS.ServiceWriteDto)">
+            <summary>
+            This endpoint updates the state of service in progress
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of Service to Update</param>
+            <param name="serviceWriteDto">The <see cref="T:WebApplication1.DTOS.ServiceWriteDto"/> with the new profit of services</param>
+        </member>
+        <member name="T:WebApplication1.Controllers.TransportController">
+            <summary>
+            This controller manage transports.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.TransportController.#ctor(WebApplication1.Repository.ITransportRepository,AutoMapper.IMapper)">
+            <summary>
+            This constructor inject the Transport repository to be use by the Transport controller.
+            </summary>
+            <param name="repository"> transport repository </param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:WebApplication1.Controllers.TransportController.addTransport(WebApplication1.DTOS.TransportWriteDto)">
+            <summary>
+            This endpoint adds a new transport in sql database.
+            </summary>
+            <param name="createTransportWriteDto">to be added</param>
+            <returns>The added <see cref="T:WebApplication1.Models.Transport"/>, exception if the data matches an already existing transport</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TransportController.getAllTransportFromFirebase">
+            <summary>
+            This endpoint gets all transports from firebase database and insert them into the sql database.
+            </summary>
+            <returns> List with <see cref="T:WebApplication1.DTOS.TransportWriteDto"/> inserted into the database</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TransportController.getAllTransports">
+            <summary>
+            This endpoint returns all transports.
+            </summary>
+            <returns> List with <see cref="T:WebApplication1.DTOS.TransportReadDto"/></returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TransportController.getAllTransportsPending">
+            <summary>
+            This endpoint returns all transports that not analyzed.
+            </summary>
+            <returns> List with <see cref="T:WebApplication1.DTOS.TransportReadDto"/></returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TransportController.mapperEntityToDto(WebApplication1.Models.Transport)">
+            <summary>
+             This method converts an entity (<see cref="T:WebApplication1.Models.Transport"/>)  into a dto (<see cref="T:WebApplication1.DTOS.TransportReadDto"/>).
+            </summary>
+            <returns> of <see cref="T:WebApplication1.DTOS.Read.TruckReadDto"/> created </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TransportController.updateTransport(System.Guid)">
+            <summary>
+            This endpoint rejects a transport.
+            </summary>
+            <param name="id"> Transport <see cref="T:System.Guid"/> to reject</param>
+        </member>
+        <member name="M:WebApplication1.Controllers.TransportController.getNumberTransportsByCategory">
+            <summary>
+            This endpoint returns the number of transports by category.
+            </summary>
+            <returns><see cref="T:WebApplication1.DTOS.Read.TypesOfTrucksDto"/> with the values</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TransportController.getNumberOfAcceptedandRejectedTransports">
+            <summary>
+            This endpoint returns the number of accepted and rejected transports.
+            </summary>
+            <returns><see cref="T:WebApplication1.DTOS.Global.TransportsAcceptedAndRejected"/> with the values</returns>
+        </member>
+        <member name="T:WebApplication1.Controllers.TruckBreakDownsController">
+            <summary>
+            This controller manage trucks.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckBreakDownsController.#ctor(WebApplication1.Repository.Interfaces.ITruckBreakDownsRepository)">
+            <summary>
+            This constructor inject the Truckbreakdowns repository to be use by the user controller.
+            </summary>
+            <param name="truckRepository"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckBreakDownsController.addTruckBreakDowns(WebApplication1.DTOS.TruckBreakDownsWriteDto)">
+            <summary>
+            This endpoint adds a truck breakdown to the database.
+            </summary>
+            <param name="truckBreakDownsWriteDto">to be added</param>
+            <returns>The added <see cref="T:WebApplication1.DTOS.Read.TruckBreakDownsReadDto"/>, exception if the truck doesn't exist or already have a truck breakdown that day </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckBreakDownsController.getAllTruckBreakDowns">
+            <summary>
+            This endpoint returns all truck breakdowns.
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.List`1" /> of truck breakdowns</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckBreakDownsController.updateTruckBreakDown(System.Guid,WebApplication1.DTOS.TruckBreakDownsWriteDto)">
+            <summary>
+            This endpoint updates the specific truck breakdown of the given id.
+            </summary>
+            <param name="truckBreakDownsWriteDto"><see cref="T:WebApplication1.DTOS.TruckBreakDownsWriteDto"/> to be updated</param>
+            <param name="id"> TruckBreakDowns <see cref="T:System.Guid"/> to edit</param>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckBreakDownsController.deleteTruckBreakDown(System.Guid)">
+            <summary>
+            This endpoint removes the specific truck breakdown of the given id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of truck breakdown to remove </param>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckBreakDownsController.getById(System.Guid)">
+            <summary>
+            This endpoint returns the specific truck breakdown of the given id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of the truck breakdown to find</param>
+            <returns>The chosen <see cref="T:WebApplication1.DTOS.Read.TruckBreakDownsReadDto"/>, NotFound if the id doesn't exist</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckBreakDownsController.mapperEntityToDto(WebApplication1.Models.TruckBreakDowns)">
+            <summary>
+             This method converts an entity (TruckBreakDowns) into a dto (TruckBreakDownsReadDto).
+            </summary>
+            <returns> of <see cref="T:WebApplication1.DTOS.Read.TruckReadDto"/> created </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckBreakDownsController.getTotalSpend">
+            <summary>
+             This endpoint returns the total spent on breakdowns and maintenance with trucks.
+            </summary>
+            <returns> of <see cref="!:value"/> double with the total amount </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckBreakDownsController.mapperDtoToEntity(WebApplication1.DTOS.TruckBreakDownsWriteDto)">
+            <summary>
+             This method converts a dto (TruckBreakDownsReadDto) into an entity (TruckBreakDowns).
+            </summary>
+            <returns> of <see cref="T:WebApplication1.DTOS.Read.TruckReadDto"/> created </returns>
+        </member>
+        <member name="T:WebApplication1.Controllers.TruckController">
+            <summary>
+            This controller manage trucks.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckController.#ctor(WebApplication1.Repository.ITruckRepository)">
+            <summary>
+            This constructor inject the truck repository to be use by the truck controller.
+            </summary>
+            <param name="truckRepository"> truck repository </param>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckController.addTruck(WebApplication1.DTOS.TruckWriteDto)">
+            <summary>
+            This endpoint adds a truck to the database.
+            </summary>
+            <param name="truckWriteDto">to be added</param>
+            <returns>The added <see cref="T:WebApplication1.DTOS.Read.TruckReadDto"/>, exception if registration already exists or if the driver is already associated with another truck </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckController.getAllTrucks">
+            <summary>
+            This endpoint returns all trucks with the active state.
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.List`1" /> of trucks</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckController.getTruck(System.Guid)">
+            <summary>
+            This endpoint returns the specific truck of the given id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of the truck to find</param>
+            <returns>The chosen <see cref="T:WebApplication1.DTOS.Read.TruckReadDto"/>, NotFound if the id doesn't exist</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckController.removeTruck(System.Guid)">
+            <summary>
+            This endpoint disables the specific truck of the given id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of truck to disable </param>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckController.getAllTrucksWithoutRegistrationInSystem">
+            <summary>
+            This endpoint returns all trucks from the XML file that are not registered.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckController.mapperEntityToDto(WebApplication1.Models.Truck)">
+            <summary>
+             This method converts an entity into a dto.
+            </summary>
+            <returns> of <see cref="T:WebApplication1.DTOS.Read.TruckReadDto"/> created </returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.TruckController.getCategoryTypes">
+            <summary>
+            This endpoint returns the number of truck by category.
+            </summary>
+            <returns><see cref="T:WebApplication1.DTOS.Read.TypesOfTrucksDto"/> with the values</returns>
+        </member>
+        <member name="T:WebApplication1.Controllers.AbsenceController">
+            <summary>
+            This controller manage absences.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.AbsenceController.#ctor(WebApplication1.Repository.Implementations.IAbsenceRepository)">
+            <summary>
+            This constructor inject the Absence repository to be use by the Absence controller.
+            </summary>
+            <param name="absence"> absence repository </param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:WebApplication1.Controllers.AbsenceController.addAbsence(WebApplication1.DTOS.AbsenceWriteDto)">
+            <summary>
+            This endpoint adds a new absence in sql database and firebase.
+            </summary>
+            <param name="absenceWriteDto">to be added</param>
+            <returns>The added <see cref="T:WebApplication1.Models.Absence"/>, exception if the data matches an already existing absence</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.AbsenceController.updateAbsence(System.Guid,WebApplication1.DTOS.AbsenceUpdateWriteDto)">
+            <summary>
+            This endpoint updates the specific absence of the given id.
+            </summary>
+            <param name="status">Absence <see cref="T:WebApplication1.DTOS.AbsenceUpdateWriteDto"/> with status to update absence</param>
+            <param name="id"> Absence <see cref="T:System.Guid"/>to edit</param>
+        </member>
+        <member name="M:WebApplication1.Controllers.AbsenceController.getAllAbsencesFromFirebase">
+            <summary>
+            This endpoint gets all absences from firebase database and insert them into the sql database.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.AbsenceController.getAllAbsences">
+            <summary>
+            This endpoint returns all absences.
+            </summary>
+            <returns> List with all <see cref="T:WebApplication1.DTOS.AbsenceReadDto"/></returns>
+        </member>
+        <member name="T:WebApplication1.Controllers.LoginController">
+            <summary>
+            This controller manage login.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.LoginController.#ctor(WebApplication1.Repository.IUserRepository)">
+            <summary>
+            This constructor inject the user repository to be use by the login controller.
+            </summary>
+            <param name="userRepository"> user repository</param>
+        </member>
+        <member name="M:WebApplication1.Controllers.LoginController.login(WebApplication1.Models.UserLogin)">
+            <summary>
+            This endpoint allows the user to start session.
+            </summary>
+            <param name="login"></param>
+            <returns><see cref="T:WebApplication1.DTOS.LoggedUser"/> with user data and token, null if login is invalid</returns>
+        </member>
+        <member name="T:WebApplication1.Controllers.OrganizationControLler">
+            <summary>
+            This controller manage organizations.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.OrganizationControLler.#ctor(WebApplication1.Repository.IOrganizationRepository,AutoMapper.IMapper)">
+            <summary>
+            This constructor inject the organization repository to be use by the organization controller.
+            </summary>
+            <param name="organizationRepository"> organization repository</param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:WebApplication1.Controllers.OrganizationControLler.addOrganization(WebApplication1.DTOS.OrganizationWriteDto)">
+            <summary>
+            This endpoint adds a new organization.
+            </summary>
+            <param name="organizationWriteDto"></param>
+            <returns>Created <see cref="T:WebApplication1.DTOS.Read.OrganizationReadDto"/>, exception if the data matches an existing organization</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.OrganizationControLler.getAllOrganizations">
+            <summary>
+            This endpoint returns all organizations.
+            </summary>
+            <returns> List with <see cref="T:WebApplication1.DTOS.Read.OrganizationReadDto"/></returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.OrganizationControLler.getOrganization(System.Guid)">
+            <summary>
+            This endpoint returns the specific organization of the given id.
+            </summary>
+            <returns><see cref="T:WebApplication1.Models.Organization"/>, null if the <see cref="T:System.Guid"/> does not belong to an organization</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.OrganizationControLler.updateOrganization(System.Guid,WebApplication1.DTOS.OrganizationWriteDto)">
+            <summary>
+            This endpoint updates the specific organization of the given id.
+            </summary>
+            <param name="organization"><see cref="T:WebApplication1.DTOS.OrganizationWriteDto"/> to be updated</param>
+            <param name="id"> Organization <see cref="T:System.Guid"/> to edit</param>
+        </member>
+        <member name="M:WebApplication1.Controllers.OrganizationControLler.removeOrganization(System.Guid)">
+            <summary>
+            This endpoint disables the specific organization of the given id.
+            </summary>
+            <param name="id"> Organization <see cref="T:System.Guid"/> to disable</param>
+        </member>
+        <member name="T:WebApplication1.Controllers.UsersController">
+            <summary>
+            This controller manage users.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.#ctor(WebApplication1.Repository.IUserRepository,AutoMapper.IMapper,WebApplication1.Repository.ILicenseRepository)">
+            <summary>
+            This constructor inject the user repository and the license repository to be use by the user controller.
+            </summary>
+            <param name="userRepository"> user repository</param>
+            <param name="mapper"></param>
+            <param name="licenseRepository"> license repository</param>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.addUser(WebApplication1.DTOS.RegisterUserDto)">
+            <summary>
+            This endpoint adds a  new user in sql database and firebase.
+            </summary>
+            <param name="user">to be added</param>
+            <returns>The added <see cref="T:WebApplication1.Models.User"/>, exception if the data matches an already existing user</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.getUser(System.Guid)">
+            <summary>
+            This endpoint returns the specific user of the given id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of the <see cref="T:WebApplication1.Models.User"/> to find</param>
+            <returns>The chosen <see cref="T:WebApplication1.DTOS.Read.UserReadDto"/> exception if not</returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.getAllDrivers">
+            <summary>
+            This endpoint returns all drivers
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.List`1" /> of <see cref="T:WebApplication1.DTOS.Read.UserReadDto" /></returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.getAllManagers">
+            <summary>
+            This endpoint returns all managers
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.List`1" /> of <see cref="T:WebApplication1.DTOS.Read.UserReadDto" /></returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.getAllCostumers">
+            <summary>
+            This endpoint returns all clients
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.List`1" /> of <see cref="T:WebApplication1.DTOS.Read.UserReadDto" /></returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.getAllDriversWithLicense">
+            <summary>
+            This endpoint returns all drivers and their licenses
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.List`1" /> of <see cref="T:WebApplication1.DTOS.DriverWithLicense" /></returns>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.updateUser(System.Guid,WebApplication1.DTOS.RegisterUserDto)">
+            <summary>
+            This endpoint updates the specific user of the given id.
+            </summary>
+            <param name="user"><see cref="T:WebApplication1.DTOS.RegisterUserDto"/> to be updated</param>
+            <param name="id"> User <see cref="T:System.Guid"/> to edit</param>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.removeUser(System.Guid)">
+            <summary>
+            This endpoint disables the specific user of the given id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of user to remove </param>
+        </member>
+        <member name="M:WebApplication1.Controllers.UsersController.getUserStatistics">
+            <summary>
+            This endpoint returns the number of users per profile
+            </summary>
+            <returns><see cref="T:WebApplication1.DTOS.Global.UsersRegisteredInSystemDto"/> with the values</returns>
+        </member>
+        <member name="T:WebApplication1.DTOS.BasicDto">
+            <summary>
+            The BasicDto is used in all read Dtos
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.DriverWithLicense">
+            <summary>
+             The DriverWithLicense class stores information about driver
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.DriverWithLicense.id_driver">
+            <summary>
+            contains the driver id
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.DriverWithLicense.name">
+            <summary>
+            contains the name of driver
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.DriverWithLicense.truckCategory">
+            <summary>
+            contains the category of license
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.LoggedUser">
+            <summary>
+             The LoggedUser class stores information about the about the authenticated user
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.LoggedUser.name">
+            <summary>
+            contain the name of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.LoggedUser.username">
+            <summary>
+            contain the username of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.LoggedUser.token">
+            <summary>
+            contain the token of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.LoggedUser.photoPath">
+            <summary>
+            contain the user's photo path
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.Read.ReviewTransportDto">
+            <summary>
+             The TransportReviewParameters class stores the result of the analysis of a transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.kms">
+            <summary>
+            contains the number of kms that the truck will travel from the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.valueOffered">
+            <summary>
+            contains the value offered by the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.available">
+            <summary>
+            contains the decision whether or not the service is acceptable
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.addresseOrganization">
+            <summary>
+            contains the addresses of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.listTrucks">
+            <summary>
+            contains the analyzed trucks
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.client">
+            <summary>
+            contains the client who created the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.truckSelected">
+            <summary>
+            contains the selected trucks
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.profit">
+            <summary>
+            contains the expected profit for the service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.thinksTwice">
+            <summary>
+            contains the decision whether or not the service is acceptable
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.reviewIsClose">
+            <summary>
+            contains the decision if it is to evaluate the history of the customer
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.serviceNotAvailableBecauseSizeOfTruck">
+            <summary>
+            contains if the service is impossible because of the size of the trucks
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.alertManagerForGoodHistory">
+            <summary>
+            contains the decision whether the manager should be alerted to the client's good history
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.description">
+            <summary>
+            contains the description of review
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.listServices">
+            <summary>
+            contains a list of services
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.date">
+            <summary>
+            contains the date of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.truckCategory">
+            <summary>
+            contains the category of truck that is to be used for the service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.origin">
+            <summary>
+            contains the origin of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.destiny">
+            <summary>
+            contains the destiny of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.weight">
+            <summary>
+            contains the weigth of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.capacity">
+            <summary>
+            contains the capacity of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.liters">
+            <summary>
+            contains the liters of the transport (if it is a tanker truck)
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ReviewTransportDto.status">
+            <summary>
+            contains the status of the transport (accepted, rejected, for analyzing)
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.Read.TypesOfTrucksDto">
+            <summary>
+            The TypesOfTrucksDto stores information about the number of trucks / transports by category
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.Read.CoordReadDto">
+            <summary>
+            The Coord class stores the coordinates at a time of a truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.CoordReadDto.lat">
+            <summary>
+            contains the latitude of the location
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.CoordReadDto.lng">
+            <summary>
+            contains the longitude of the location
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.Read.OrganizationReadDto">
+            <summary>
+             The OrganizationReadDto class stores information about the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.OrganizationReadDto.name">
+            <summary>
+            contains the name of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.OrganizationReadDto.enable">
+            <summary>
+            contains the state of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.OrganizationReadDto.addresses">
+            <summary>
+            contains the addresses of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.OrganizationReadDto.vatin">
+            <summary>
+            contains the vatin of the Organization
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.Read.ServiceTransportReadDto">
+            <summary>
+             The ServiceTransportReadDto class stores information about a service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.transportReadDto">
+            <summary>
+            contains the transport associated with the service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.truckReadDto">
+            <summary>
+            contains the truck associated with the service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.status">
+            <summary>
+            contains the state of service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.organizationAddress">
+            <summary>
+            contains the organization's address
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.listCoord">
+            <summary>
+            contains all registered coordinates
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.organizationAddressCoord">
+            <summary>
+            contains the organization coordinates
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.initServiceAddress">
+            <summary>
+            contains the coordinates where the service starts
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.finishService">
+            <summary>
+            contains the coordinates where the service ends
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.nowLocationTruck">
+            <summary>
+            contains the coordinates of current location of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.currentLocation">
+            <summary>
+            contains the current location of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.durationToFinish">
+            <summary>
+            contains the expected duration until the service ends
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.kms">
+            <summary>
+            contains the kms of service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.profit">
+            <summary>
+            contains the service profit
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.ServiceTransportReadDto.capacityAvailable">
+            <summary>
+            contains the remaining capacity of the truck
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.Read.TruckBreakDownsReadDto">
+            <summary>
+             The TruckBreakDownsReadDto class stores information about the truck breakdown
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckBreakDownsReadDto.description">
+            <summary>
+            contains the description of the truck breakdown
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckBreakDownsReadDto.date">
+            <summary>
+            contains the date and time of the truck breakdown
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckBreakDownsReadDto.truckReadDto">
+            <summary>
+            contains the of truckDto that broke down
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckBreakDownsReadDto.price">
+            <summary>
+            contains the price of the truck breakdown
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.Read.TruckForReviewReadDto">
+            <summary>
+             The TruckReadDto class stores information about the truck which will be used to determine your score
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.driver">
+            <summary>
+            contains the driver of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.organizationId">
+            <summary>
+            contains the id of organization of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.isAvailable">
+            <summary>
+            contains the decision whether or not the truck is available for service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.litresSpend">
+            <summary>
+            contains the spent fuel to perform the service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.valueSpend">
+            <summary>
+            contains the spent value to perform the service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.maxLitres">
+            <summary>
+            contains the maximum of liters that the truck transports (if it is a tanker truck)
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.maxVolum">
+            <summary>
+            contains the maximum of volume that the truck transports (if it is a Refrigerator or Container truck)
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.maxWeight">
+            <summary>
+            contains the maximum of weigth that the truck transports (if it is a Refrigerator or Container truck)
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.occupiedVolumePercentage">
+            <summary>
+            contains the occupancy percentage
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.score">
+            <summary>
+            contains the score
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.summaryReview">
+            <summary>
+            contains the description of review
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.noSpace">
+            <summary>
+            contains the decision if the truck is not available for lack of space
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.matricula">
+            <summary>
+            contains the registration of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.year">
+            <summary>
+            contains the year of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.truckCategory">
+            <summary>
+            contains the category of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.fuelConsumption">
+            <summary>
+            contains the fuel consumption of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.kms">
+            <summary>
+            contains the kms of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.nextRevision">
+            <summary>
+            contains the kms  when the next review should be done
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckForReviewReadDto.photoPath">
+            <summary>
+            contains the truck's photo path
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.Read.TruckReadDto">
+            <summary>
+             The TruckReadDto class stores information about the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.driver">
+            <summary>
+            contains the driver of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.matricula">
+            <summary>
+            contains the registration of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.year">
+            <summary>
+            contains the year of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.truckCategory">
+            <summary>
+            contains the category of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.fuelConsumption">
+            <summary>
+            contains the fuel consumption of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.kms">
+            <summary>
+            contains the kms of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.nextRevision">
+            <summary>
+            contains the kms  when the next review should be done
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.photoPath">
+            <summary>
+            contains the truck's photo path
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.organization_id">
+            <summary>
+            contains the organization of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.status">
+            <summary>
+            contains the status of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.capacity">
+            <summary>
+            contains the maximum of capacity that the truck transports
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.litresSpend">
+            <summary>
+            contains the estimated fuel consumption
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.availableCapacity">
+            <summary>
+            contains the remaining capacity of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.score">
+            <summary>
+            contains the score
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.TruckReadDto.valueSpend">
+            <summary>
+            contains the spent value to perform the service
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.Read.UserReadDto">
+            <summary>
+             The UserReadDto class stores information about the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.UserReadDto.username">
+            <summary>
+            contains the username of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.UserReadDto.name">
+            <summary>
+            contains the name of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.UserReadDto.email">
+            <summary>
+            contains the email of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.UserReadDto.role">
+            <summary>
+            contains the role of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.UserReadDto.photofilename">
+            <summary>
+            contains the user's photo path
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Read.UserReadDto.userState">
+            <summary>
+            contains the user state
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.TransportReviewParametersDto">
+            <summary>
+             The TransportReviewParameters class stores information about parameters that are used in transport analysis
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReviewParametersDto.valueSaturday">
+            <summary>
+            contains the value that the service costs more if it is on a Saturday
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReviewParametersDto.valueSunday">
+            <summary>
+            contains the value that the service costs more if it is on a Sunday
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReviewParametersDto.valueHoliday">
+            <summary>
+            contains the value that the service costs more if it is on a Holiday
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReviewParametersDto.valueFuel">
+            <summary>
+            contains the value of fuel
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReviewParametersDto.valueToll">
+            <summary>
+            contains the value of toll per km
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReviewParametersDto.typeAnalysis">
+            <summary>
+            contains the type of analysis to be performed
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReviewParametersDto.considerTruckBreakDowns">
+            <summary>
+            contains the decision if the history of truck break downs influences the choice
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.Global.TransportsAcceptedAndRejected">
+            <summary>
+            The TransportsAcceptedAndRejected stores information about the number of denied/accepted transports
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Global.TransportsAcceptedAndRejected.accepted">
+            <summary>
+            contains the number of accepted transports
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Global.TransportsAcceptedAndRejected.denied">
+            <summary>
+            contains the number of denied transports
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.Global.UsersRegisteredInSystemDto">
+            <summary>
+            The UsersRegisteredInSystemDto stores information about the number of users on the system
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Global.UsersRegisteredInSystemDto.drivers">
+            <summary>
+            contains the number of registered drivers
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Global.UsersRegisteredInSystemDto.managers">
+            <summary>
+            contains the number of registered managers
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Global.UsersRegisteredInSystemDto.clients">
+            <summary>
+            contains the number of registered clients
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.Global.UsersRegisteredInSystemDto.total">
+            <summary>
+            contains the total of registered users
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.AbsenceReadDto">
+            <summary>
+             The AbsenceReadDto class stores information about the absence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.AbsenceReadDto.driver">
+            <summary>
+            contains the driver of the abscence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.AbsenceReadDto.date">
+            <summary>
+            contains the date of the abscence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.AbsenceReadDto.description">
+            <summary>
+            contains the description of the abscence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.AbsenceReadDto.abscence">
+            <summary>
+            contains the type of the abscence
+            </summary> 
+        </member>
+        <member name="P:WebApplication1.DTOS.AbsenceReadDto.status">
+            <summary>
+            contains the state of the abscence
+            </summary> 
+        </member>
+        <member name="T:WebApplication1.DTOS.TransportReadDto">
+            <summary>
+             The TransportReadDto class stores information about a transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReadDto.date">
+            <summary>
+            contains the date of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReadDto.truckCategory">
+            <summary>
+            contains the category of truck that is to be used for the service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReadDto.client_id">
+            <summary>
+            contains the client who created the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReadDto.origin">
+            <summary>
+            contains the origin of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReadDto.destiny">
+            <summary>
+            contains the destiny of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReadDto.weight">
+            <summary>
+            contains the weigth of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReadDto.capacity">
+            <summary>
+            contains the capacity of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReadDto.liters">
+            <summary>
+            contains the liters of the transport (if it is a tanker truck)
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReadDto.value_offered">
+            <summary>
+            contains the value offered by the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportReadDto.status">
+            <summary>
+            contains the status of the transport (accepted, rejected, for analyzing)
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.AbsenceUpdateWriteDto">
+            <summary>
+             The Absence class stores information to update an absence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.AbsenceUpdateWriteDto.status">
+            <summary>
+            contains the state of the abscence
+            </summary> 
+        </member>
+        <member name="T:WebApplication1.DTOS.AbsenceWriteDto">
+            <summary>
+             The Absence class stores information to save an absence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.AbsenceWriteDto.date">
+            <summary>
+            contains the date and time of the abscence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.AbsenceWriteDto.description">
+            <summary>
+            contains the description of the abscence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.AbsenceWriteDto.absenceType">
+            <summary>
+            contains the type of the abscence
+            </summary> 
+        </member>
+        <member name="P:WebApplication1.DTOS.AbsenceWriteDto.id">
+            <summary>
+            identifier of the driver
+            </summary> 
+        </member>
+        <member name="T:WebApplication1.DTOS.OrganizationWriteDto">
+            <summary>
+             The OrganizationWriteDto class stores information to save or update an organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.OrganizationWriteDto.name">
+            <summary>
+            contains the name of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.OrganizationWriteDto.enable">
+            <summary>
+            contains the state of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.OrganizationWriteDto.addresses">
+            <summary>
+            contains the addresses of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.OrganizationWriteDto.vatin">
+            <summary>
+            contains the vatin of the Organization
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.RegisterUserDto">
+            <summary>
+             The RegisterUserDto class stores information to save or update a user
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.RegisterUserDto.username">
+            <summary>
+            contains the username of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.RegisterUserDto.password">
+            <summary>
+            contains the password of the User, has at least 5 characters
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.RegisterUserDto.organizationId">
+            <summary>
+             the id of the organization to which the user belongs
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.RegisterUserDto.role">
+            <summary>
+            contains the role of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.RegisterUserDto.photofilename">
+            <summary>
+            contains the user's photo path
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.RegisterUserDto.name">
+            <summary>
+            contains the name of the User
+            </summary>4
+        </member>
+        <member name="P:WebApplication1.DTOS.RegisterUserDto.category">
+            <summary>
+            contains the driver's driving license category
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.RegisterUserDto.email">
+            <summary>
+            contains the email of the User
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.ServiceCoordWriteDto">
+            <summary>
+             The ServiceCoordWriteDto class stores information to save the coordinates of a service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.ServiceCoordWriteDto.idService">
+            <summary>
+            contains the id of service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.ServiceCoordWriteDto.coord">
+            <summary>
+            contains the coordinates of service 
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.TransportWriteDto">
+            <summary>
+             The TransportWriteDto class stores information to save a transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportWriteDto.date">
+            <summary>
+            contains the date of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportWriteDto.truckCategory">
+            <summary>
+            contains the category of truck that is to be used for the service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportWriteDto.userName">
+            <summary>
+            contains the username who created the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportWriteDto.origin">
+            <summary>
+            contains the origin of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportWriteDto.destiny">
+            <summary>
+            contains the destiny of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportWriteDto.weight">
+            <summary>
+            contains the weigth of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportWriteDto.capacity">
+            <summary>
+            contains the capacity of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportWriteDto.liters">
+            <summary>
+            contains the liters of the transport (if it is a tanker truck)
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportWriteDto.value_offered">
+            <summary>
+            contains the value offered by the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TransportWriteDto.status">
+            <summary>
+            contains the status of the transport (accepted, rejected, for analyzing)
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.TruckBreakDownsWriteDto">
+            <summary>
+             The TruckBreakDownsWriteDto class stores information to save a truck breakdown
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TruckBreakDownsWriteDto.description">
+            <summary>
+            contains the description of the truck breakdown
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TruckBreakDownsWriteDto.date">
+            <summary>
+            contains the date and time of the truck breakdown
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TruckBreakDownsWriteDto.truckId">
+            <summary>
+            contains the id of truck that broke down
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TruckBreakDownsWriteDto.price">
+            <summary>
+            contains the price of the truck breakdown
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.TruckWriteDto">
+            <summary>
+             The Truck class stores information to save a truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TruckWriteDto.matricula">
+            <summary>
+            contains the registration of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TruckWriteDto.photofilename">
+            <summary>
+            contains the truck's photo path
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TruckWriteDto.organizationId">
+            <summary>
+            contains the organization of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TruckWriteDto.driverId">
+            <summary>
+            contains the identifier of the driver
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.TruckWriteDto.truckCategory">
+            <summary>
+            contains the category of the truck
+            </summary>
+        </member>
+        <member name="T:WebApplication1.DTOS.ServiceWriteDto">
+            <summary>
+             The ServiceWriteDto class stores information to save a service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.ServiceWriteDto.truckId">
+            <summary>
+            contains the id of truck 
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.ServiceWriteDto.transportId">
+            <summary>
+            contains the id of transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.ServiceWriteDto.kms">
+            <summary>
+            contains the kms of service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.ServiceWriteDto.profit">
+            <summary>
+            contains the service profit
+            </summary>
+        </member>
+        <member name="P:WebApplication1.DTOS.ServiceWriteDto.capacityAvailable">
+            <summary>
+            contains the capacity still available on the truck
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Enumerations.AbsenceType">
+            <summary>
+            Represents the AbscenceType enumeration
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Enumerations.ConsiderTruckBreakDowns">
+            <summary>
+             Represents the TruckCategory enumeration
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Enumerations.Profile">
+            <summary>
+            Represents the User profile enumeration
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Enumerations.Status">
+            <summary>
+            Represents the State enumeration
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Enumerations.TruckCategory">
+            <summary>
+            Represents the TruckCategory enumeration
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Enumerations.TypeAnalysis">
+            <summary>
+             Represents the type of analysis that the algorithm will perform
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Enumerations.ServiceStatus">
+            <summary>
+            This enumeration represents the states that a service can have
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.UtilsModels.Coord">
+            <summary>
+            The Coord class stores the coordinates at a time of a truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.Coord.latitude">
+            <summary>
+            contains the latitude of the location
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.Coord.longitude">
+            <summary>
+            contains the longitude of the location
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.UtilsModels.ModelResponseHolidaysApi.ResponseElement">
+            <summary>
+            This class stores information about response of Holidays WebApi
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.ModelResponseHolidaysApi.ResponseElement.description">
+            <summary>
+            contains the description of the response
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.ModelResponseHolidaysApi.ResponseElement.date">
+            <summary>
+            contains the date of the response
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.ModelResponseHolidaysApi.ResponseElement.date_year">
+            <summary>
+            contains the date_year of the response
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.ModelResponseHolidaysApi.ResponseElement.date_month">
+            <summary>
+            contains the date_month of the response
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.ModelResponseHolidaysApi.ResponseElement.week_day">
+            <summary>
+            contains the week_day of the response
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.UtilsModels.ServiceModelFireBase">
+            <summary>
+            This class stores the service data that will be stored in the firebase database
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.ServiceModelFireBase.idService">
+            <summary>
+            identifier of the Service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.ServiceModelFireBase.userNameDriver">
+            <summary>
+            contains de the username of driver who will do the service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.ServiceModelFireBase.origin">
+            <summary>
+            contains the origin of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.ServiceModelFireBase.destiny">
+            <summary>
+            contains the destiny of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.ServiceModelFireBase.date">
+            <summary>
+            contains the date of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.UtilsModels.ServiceModelFireBase.status">
+            <summary>
+            contains the state of service
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.ModelResponseDistanceMatrix">
+            <summary>
+            This class stores information about response of ModelResponseDistanceMatrix
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Row">
+            <summary>
+            This class stores information about all rows
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Element">
+            <summary>
+            This class stores information about distance, duration and status between two locations
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Distance">
+            <summary>
+            This class stores information about distance between two locations
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Duration">
+            <summary>
+            This class stores information about duration between two locations
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Utils.ModelTruckDetailsXML">
+            <summary>
+            This class stores the XML information of all trucks
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.Utils.ModelTruckDetailsXML.truckDetails">
+            <summary>
+            contains the information of all trucks
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Utils.TruckDetailsXml">
+            <summary>
+            This class stores the information of a truck that is present in the XML file
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.Utils.TruckDetailsXml.capacity">
+            <summary>
+            contains the capacity of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.Utils.TruckDetailsXml.power">
+            <summary>
+            contains the power of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.Utils.TruckDetailsXml.matricula">
+            <summary>
+            contains the registration of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.Utils.TruckDetailsXml.year">
+            <summary>
+            contains the year of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.Utils.TruckDetailsXml.fuelConsumption">
+            <summary>
+            contains the fuel consumption of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.Utils.TruckDetailsXml.kms">
+            <summary>
+            contains the kms of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.Utils.TruckDetailsXml.nextRevision">
+            <summary>
+            contains the kms  when the next review should be done
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Global.Utils.TruckDetailsXml.truckCategory">
+            <summary>
+            contains the category of the truck
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Global.Utils.IDistanceService">
+            <summary>
+            This interface contains the methods that allows get the information  between two locations
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Global.Utils.IDistanceService.getDistanceAndEstimatedTimeWhitParams(System.String,System.String)">
+            <summary>
+            This method gets the information between two locations
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Utils.transformStringToData(System.String)">
+            <summary>
+            This method transforms a string into a date
+            </summary>
+            <returns> <see cref="T:System.DateTime"/>, exception if the string is invalid</returns>
+        </member>
+        <member name="M:WebApplication1.Utils.transformStringToData2(System.String)">
+            <summary>
+            This method transforms a string into a date
+            </summary>
+            <returns> <see cref="T:System.DateTime"/>, exception if the string is invalid</returns>
+        </member>
+        <member name="M:WebApplication1.Utils.entityToDtoUser(WebApplication1.Models.User)">
+            <summary>
+             This method converts an entity into a dto
+            </summary>
+            <returns> of <see cref="T:WebApplication1.DTOS.Read.UserReadDto"/> created </returns>
+        </member>
+        <member name="M:WebApplication1.Utils.isAvailableDriver(System.Linq.IQueryable{WebApplication1.Models.Truck},System.Guid)">
+            <summary>
+            This method checks if the driver is already associated with a truck
+            </summary>
+            <returns> true if not, false otherwise </returns>
+        </member>
+        <member name="M:WebApplication1.Utils.parseEnum``1(System.String)">
+            <summary>
+            This method convert a string to an enumeration value
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.UserLogin.username">
+            <summary>
+            contains the username of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.UserLogin.password">
+            <summary>
+            contains the password of the User
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Models.Absence">
+            <summary>
+             The Absence class stores information about the Absence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Absence.id">
+            <summary>
+            identifier of the Absence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Absence.driver">
+            <summary>
+            contains the driver who registered the absence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Absence.date">
+            <summary>
+            contains the date and time of the absence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Absence.description">
+            <summary>
+            contains the description of the absence
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Absence.absence">
+            <summary>
+            contains the type of the absence
+            </summary> 
+        </member>
+        <member name="P:WebApplication1.Models.Absence.status">
+            <summary>
+            contains the state of the absence
+            </summary> 
+        </member>
+        <member name="T:WebApplication1.Models.License">
+            <summary>
+             The Organization class stores information about the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.License.id">
+            <summary>
+            identifier of the License
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.License.driver">
+            <summary>
+            contains the driver that has the license
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.License.truck_category">
+            <summary>
+             contains license truck category
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Models.Organization">
+            <summary>
+             The Organization class stores information about the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Organization.id">
+            <summary>
+            identifier of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Organization.name">
+            <summary>
+            contains the name of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Organization.users">
+            <summary>
+            contains the list of users of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Organization.enable">
+            <summary>
+            contains the state of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Organization.addresses">
+            <summary>
+            contains the addresses of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Organization.vatin">
+            <summary>
+            contains the vatin of the Organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.PathPhoto.id">
+            <summary>
+            identifier of the photo
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.PathPhoto.number">
+            <summary>
+            contains the photo number (auto increment in database)
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.PathPhoto.name">
+            <summary>
+            contains the name of the photo
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.PathPhoto.type">
+            <summary>
+            contains the type of the photo User, Truck or Other
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Models.ServiceCoord">
+            <summary>
+             The ServiceCoord class stores information about the location of the truck in a service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.ServiceCoord.id">
+            <summary>
+            identifier of the ServiceCoord
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.ServiceCoord.serviceTransport">
+            <summary>
+            contains the service corresponding to the location
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.ServiceCoord.latitude">
+            <summary>
+            contains the latitude of the location
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.ServiceCoord.longitude">
+            <summary>
+            contains the longitude of the location
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Models.Transport">
+            <summary>
+            The Transport class stores information about a transport created by a customer
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Transport.id">
+            <summary>
+            identifier of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Transport.date">
+            <summary>
+            contains the date of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Transport.truck_category">
+            <summary>
+            contains the category of truck that is to be used for the service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Transport.origin">
+            <summary>
+            contains the origin of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Transport.destiny">
+            <summary>
+            contains the destiny of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Transport.weight">
+            <summary>
+            contains the weigth of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Transport.capacity">
+            <summary>
+            contains the capacity of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Transport.liters">
+            <summary>
+            contains the liters of the transport (if it is a tanker truck)
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Transport.value_offered">
+            <summary>
+            contains the value offered by the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Transport.user_client">
+            <summary>
+            contains the customer who created the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Transport.status">
+            <summary>
+            contains the status of the transport (accepted, rejected, for analyzing)
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Models.TransportReviewParameters">
+            <summary>
+             The TransportReviewParameters class stores information about parameters that are used in transport analysis
+            </summary>
+            
+        </member>
+        <member name="P:WebApplication1.Models.TransportReviewParameters.id">
+            <summary>
+            identifier of the transport review parameters
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.TransportReviewParameters.valueSaturday">
+            <summary>
+            contains the value that the service costs more if it is on a Saturday
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.TransportReviewParameters.valueSunday">
+            <summary>
+            contains the value that the service costs more if it is on a Sunday
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.TransportReviewParameters.valueHoliday">
+            <summary>
+            contains the value that the service costs more if it is on a Holiday
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.TransportReviewParameters.valueFuel">
+            <summary>
+            contains the value of fuel
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.TransportReviewParameters.valueToll">
+            <summary>
+            contains the value of toll per km
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.TransportReviewParameters.typeAnalysis">
+            <summary>
+            contains the type of analysis to be performed
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.TransportReviewParameters.considerTruckBreakDowns">
+            <summary>
+            contains the decision if the history of truck break downs influences the choice
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Models.Truck">
+            <summary>
+             The Truck class stores information about the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Truck.id">
+            <summary>
+            identifier of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Truck.driver">
+            <summary>
+            contains the driver of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Truck.matricula">
+            <summary>
+            contains the registration of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Truck.year">
+            <summary>
+            contains the year of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Truck.truckCategory">
+            <summary>
+            contains the category of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Truck.fuelConsumption">
+            <summary>
+            contains the fuel consumption of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Truck.kms">
+            <summary>
+            contains the kms of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Truck.nextRevision">
+            <summary>
+            contains the kms when the next review should be done
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Truck.photoPath">
+            <summary>
+            contains the truck's photo path
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Truck.organization_id">
+            <summary>
+            contains the organization of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.Truck.status">
+            <summary>
+            contains the status of the truck
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Models.TruckBreakDowns">
+            <summary>
+             The TruckBreakDowns class stores information about the breakdown of a truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.TruckBreakDowns.id">
+            <summary>
+            identifier of the truck breakdown
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.TruckBreakDowns.description">
+            <summary>
+            contains the description of the truck breakdown
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.TruckBreakDowns.date">
+            <summary>
+            contains the date and time of the truck breakdown
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.TruckBreakDowns.truck">
+            <summary>
+            contains the truck that broke down
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.TruckBreakDowns.price">
+            <summary>
+            contains the price of the truck breakdown
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Models.User">
+            <summary>
+             The User class stores information about the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.User.id">
+            <summary>
+             identifier of the user
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.User.organization">
+            <summary>
+             contains the user organization
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.User.username">
+            <summary>
+            contains the username of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.User.name">
+            <summary>
+            contains the name of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.User.email">
+            <summary>
+            contains the email of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.User.password">
+            <summary>
+            contains the password of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.User.role">
+            <summary>
+            contains the role of the User
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.User.photofilename">
+            <summary>
+            contains the user's photo path
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.User.userState">
+            <summary>
+            contains the user state
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Models.ServiceTransport">
+            <summary>
+            The ServiceTransport class stores information about an accepted transport service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.ServiceTransport.id">
+            <summary>
+            identifier of the service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.ServiceTransport.idTruck">
+            <summary>
+            identifier of the truck
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.ServiceTransport.idTransport">
+            <summary>
+            identifier of the transport
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.ServiceTransport.status">
+            <summary>
+            contains the state of service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.ServiceTransport.kms">
+            <summary>
+            contains the kms of service
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.ServiceTransport.profit">
+            <summary>
+            contains the service profit
+            </summary>
+        </member>
+        <member name="P:WebApplication1.Models.ServiceTransport.capacityAvailable">
+            <summary>
+            contains the capacity still available on the truck
+            </summary>
+        </member>
+        <member name="T:WebApplication1.Repository.Implementations.AbsenceRepository">
+            <summary>
+            This class represents a Absence Repository that contains all the necessary methods for Absence management.
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Repository.Implementations.AbsenceRepository.context">
+             <summary>
+            The DbContext instance that represents a session with the database that can be used to query, insert, update and drop
+             </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.AbsenceRepository.#ctor(WebApplication1.Context.AppDbContext)">
+            <summary>
+            Constructor method for the Absence repository.
+            </summary>
+            <param name="databaseContext"> <see cref="!:DatabaseContext"/> of database </param>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.AbsenceRepository.addAbsence(WebApplication1.Models.Absence,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.AbsenceRepository.updateAbsence(System.Guid,WebApplication1.Global.Enumerations.Status)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.AbsenceRepository.addAbsenceFromFirebase(WebApplication1.DTOS.AbsenceWriteDto)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.AbsenceRepository.getAllAbsences">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.AbsenceRepository.verifyIfExists(WebApplication1.DTOS.AbsenceWriteDto)">
+            <summary>
+             This method checks if the absence already exists
+            </summary>
+            <returns> True if it exists, false if not </returns>
+        </member>
+        <member name="T:WebApplication1.Repository.Implementations.LicenseRepository">
+            <summary>
+            This class represents a License Repository that contains all the necessary methods for License management.
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Repository.Implementations.LicenseRepository.context">
+            <summary>
+            The DbContext instance that represents a session with the database that can be used to query, insert, update and drop
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.LicenseRepository.#ctor(WebApplication1.Context.AppDbContext)">
+            <summary>
+            Constructor method for the License repository.
+            </summary>
+            <param name="databaseContext"> <see cref="!:DatabaseContext"/> of database </param>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.LicenseRepository.getLicence(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WebApplication1.Repository.Implementations.OrganizationRepository">
+            <summary>
+            This class represents an Organization Repository that contains all the necessary methods for Organization management.
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Repository.Implementations.OrganizationRepository.context">
+            <summary>
+            The DbContext instance that represents a session with the database that can be used to query, insert, update and drop
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Repository.Implementations.OrganizationRepository.mapper">
+            <summary>
+            Mapper to convert dto to entity
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.OrganizationRepository.#ctor(WebApplication1.Context.AppDbContext,AutoMapper.IMapper)">
+            <summary>
+            Constructor method for the Organization repository.
+            </summary>
+            <param name="databaseContext"> <see cref="!:DatabaseContext"/> of database </param>
+            <param name="mapper"> <see cref="T:AutoMapper.IMapper"/> </param>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.OrganizationRepository.addOrganization(WebApplication1.DTOS.OrganizationWriteDto)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.OrganizationRepository.removeOrganization(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.OrganizationRepository.getOrganization(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.OrganizationRepository.updateOrganization(System.Guid,WebApplication1.DTOS.OrganizationWriteDto)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.OrganizationRepository.getAllOrganizations">
+            <inheritdoc/>
+        </member>
+        <member name="T:WebApplication1.Repository.Implementations.PathPhotoRepository">
+            <summary>
+            This class represents a Image Repository that contains all the necessary methods for Image management.
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Repository.Implementations.PathPhotoRepository.context">
+             <summary>
+            The DbContext instance that represents a session with the database that can be used to query, insert, update and drop
+             </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.PathPhotoRepository.#ctor(WebApplication1.Context.AppDbContext)">
+            <summary>
+            Constructor method for the PathPhoto repository.
+            </summary>
+            <param name="databaseContext"> <see cref="!:DatabaseContext"/> of database </param>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.PathPhotoRepository.addImage(WebApplication1.Models.PathPhoto)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WebApplication1.Repository.Implementations.ServiceCoordRepository">
+            <summary>
+            This class represents a ServiceCoord Repository that contains all the necessary methods to save and list the coordinates of a service.
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Repository.Implementations.ServiceCoordRepository.context">
+             <summary>
+            The DbContext instance that represents a session with the database that can be used to query, insert, update, and drop
+             </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceCoordRepository.#ctor(WebApplication1.Context.AppDbContext)">
+            <summary>
+            Constructor method for the Transport repository.
+            </summary>
+            <param name="context"> <see cref="!:DatabaseContext"/> of database </param>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceCoordRepository.addServiceCoord(WebApplication1.DTOS.ServiceCoordWriteDto)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceCoordRepository.getAllServiceCoordByServiceId(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceCoordRepository.verifyIfCoordinatesAlreadyExists(WebApplication1.DTOS.ServiceCoordWriteDto)">
+            <summary>
+             This method checks if the coordinates already exists
+            </summary>
+            <returns> True if it exists, false if not </returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceCoordRepository.dtoToEntity(WebApplication1.DTOS.ServiceCoordWriteDto)">
+            <summary>
+             This method converts a dto into a database entity
+            </summary>
+            <returns> <see cref="T:WebApplication1.Models.Transport"/> created </returns>
+        </member>
+        <member name="T:WebApplication1.Repository.Implementations.TransportRepository">
+            <summary>
+            This class represents a Transport Repository that contains all the necessary methods for Transport management.
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Repository.Implementations.TransportRepository.context">
+             <summary>
+            The DbContext instance that represents a session with the database that can be used to query, insert, update, and drop
+             </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TransportRepository.#ctor(WebApplication1.Context.AppDbContext)">
+            <summary>
+            Constructor method for the Transport repository.
+            </summary>
+            <param name="databaseContext"> <see cref="!:DatabaseContext"/> of database </param>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TransportRepository.addTransport(WebApplication1.DTOS.TransportWriteDto)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TransportRepository.removeTransport(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TransportRepository.getTransport(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TransportRepository.update(System.Guid,WebApplication1.Global.Enumerations.Status)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TransportRepository.getAllTransports">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TransportRepository.verifyIfExists(WebApplication1.DTOS.TransportWriteDto)">
+            <summary>
+             This method checks if the transport already exists
+            </summary>
+            <returns> True if it exists, false if not </returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TransportRepository.dtoToEntity(WebApplication1.DTOS.TransportWriteDto)">
+            <summary>
+             This method converts a dto into a database entity
+            </summary>
+            <returns> <see cref="T:WebApplication1.Models.Transport"/> created </returns>
+        </member>
+        <member name="T:WebApplication1.Repository.Implementations.TransportReviewParametersRepository">
+            <summary>
+            This class represents a TransportReviewParameters Repository that contains all the necessary methods to save and change parameters to analyze a transport
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Repository.Implementations.TransportReviewParametersRepository.context">
+             <summary>
+            The DbContext instance that represents a session with the database that can be used to query, insert, update, and drop
+             </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TransportReviewParametersRepository.#ctor(WebApplication1.Context.AppDbContext)">
+            <summary>
+            Constructor method for the repository.
+            </summary>
+            <param name="databaseContext"> <see cref="!:DatabaseContext"/> of database </param>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TransportReviewParametersRepository.addTransportReviewParameters(WebApplication1.Models.TransportReviewParameters)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TransportReviewParametersRepository.getTransportReviewParameters">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TransportReviewParametersRepository.updateTransportReviewParameters(WebApplication1.Models.TransportReviewParameters,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WebApplication1.Repository.Implementations.TruckBreakDownsRepository">
+            <summary>
+            This class represents a TruckBreakDowns that contains all the necessary methods for truck breakDowns management.
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Repository.Implementations.TruckBreakDownsRepository.context">
+            <summary>
+            The DbContext instance that represents a session with the database that can be used to query, insert, update and drop
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckBreakDownsRepository.#ctor(WebApplication1.Context.AppDbContext)">
+            <summary>
+            Constructor method for the TruckBreakDowns repository.
+            </summary>
+            <param name="databaseContext"> <see cref="!:DatabaseContext"/> of database </param>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckBreakDownsRepository.addTruckBreakDown(WebApplication1.Models.TruckBreakDowns,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckBreakDownsRepository.getAllTruckBreakDowns">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckBreakDownsRepository.deleteTruckBreakDown(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckBreakDownsRepository.getTruckBreakDowns(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckBreakDownsRepository.updateTruckBreakDown(System.Guid,WebApplication1.DTOS.TruckBreakDownsWriteDto,System.DateTime)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WebApplication1.Repository.Implementations.TruckRepository">
+            <summary>
+            This class represents a Truck Repository that contains all the necessary methods for truck management.
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Repository.Implementations.TruckRepository.context">
+            <summary>
+            The DbContext instance that represents a session with the database that can be used to query, insert, update and drop
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckRepository.#ctor(WebApplication1.Context.AppDbContext)">
+            <summary>
+            Constructor method for the Truck repository.
+            </summary>
+            <param name="databaseContext"> <see cref="!:DatabaseContext"/> of database </param>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckRepository.addTruck(WebApplication1.DTOS.TruckWriteDto)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckRepository.removeTruck(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckRepository.getTruckInformation(System.String)">
+            <summary>
+            This method returns the information about the truck that is present in the XML file.
+            </summary>
+            <returns> of <see cref="T:WebApplication1.Global.Utils.TruckDetailsXml"/>with truck information, null if the registration number corresponds to a non-existent truck </returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckRepository.getTruck(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckRepository.getAllTrucks">
+            <inheritdoc/>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:WebApplication1.Repository.Implementations.TruckRepository.getPathPhoto(System.String)" -->
+        <member name="M:WebApplication1.Repository.Implementations.TruckRepository.mapperDtoToEntity(WebApplication1.DTOS.TruckWriteDto,WebApplication1.Global.Utils.TruckDetailsXml)">
+            <summary>
+             This method converts a dto into a database entity
+            </summary>
+            <returns> <see cref="T:WebApplication1.Models.Truck"/> created </returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckRepository.getAllTrucksWithoutRegistrationInSystem">
+            <inheritdoc/> 
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckRepository.getTrucksByCategory(WebApplication1.Global.Enumerations.TruckCategory)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.TruckRepository.getCapacityOfTruck(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WebApplication1.Repository.Implementations.IAbsenceRepository">
+            <summary>
+            This interface represents a Absence Repository that contains all the necessary methods for Absence management.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.IAbsenceRepository.addAbsence(WebApplication1.Models.Absence,System.Guid)">
+            <summary>
+            This method adds a <see cref="T:WebApplication1.Models.Absence"/> to the database.
+            </summary>
+            <param name="absence">to be added</param>
+            <param name="idUser"> >The <see cref="T:System.Guid"/> of user </param>
+            <returns>Added <see cref="T:WebApplication1.Models.Absence"/> if the driver does not already have one on that day</returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.IAbsenceRepository.updateAbsence(System.Guid,WebApplication1.Global.Enumerations.Status)">
+            <summary>
+            This method updates the data of a <see cref="T:WebApplication1.Models.Absence"/> in the database.
+            </summary>
+            <param name="status"><see cref="T:WebApplication1.Global.Enumerations.Status"/> to be updated</param>
+            <param name="id"> Absence <see cref="T:System.Guid"/>to edit</param>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.IAbsenceRepository.addAbsenceFromFirebase(WebApplication1.DTOS.AbsenceWriteDto)">
+            <summary>
+            This method adds a <see cref="T:WebApplication1.Models.Absence"/> to the database an absence that was present in the firebase database.
+            </summary>
+            <param name="absenceWriteDto">to be added</param>
+            <returns>Added <see cref="T:WebApplication1.Models.Absence"/>, null if the driver already has an absence on that day</returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.IAbsenceRepository.getAllAbsences">
+            <summary>
+             This method returns all the existing <see cref="T:WebApplication1.Models.Absence"/>.
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="T:WebApplication1.Models.Absence" /></returns>
+        </member>
+        <member name="T:WebApplication1.Repository.Implementations.ServiceRepository">
+            <summary>
+            This class represents a Service Repository that contains all the necessary methods for service transport management.
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Repository.Implementations.ServiceRepository.context">
+             <summary>
+            The DbContext instance that represents a session with the database that can be used to query, insert, update, and drop
+             </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceRepository.#ctor(WebApplication1.Context.AppDbContext)">
+            <summary>
+            Constructor method for the Service repository.
+            </summary>
+            <param name="databaseContext"> <see cref="!:DatabaseContext"/> of database </param>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceRepository.addServiceTransport(WebApplication1.DTOS.ServiceWriteDto)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceRepository.getAllServiceTransports">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceRepository.getServiceTransport(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceRepository.updateStateService(System.Guid,WebApplication1.Global.Enumerations.ServiceStatus)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceRepository.verifyIfServiceAlreadyExists(WebApplication1.DTOS.ServiceWriteDto)">
+            <summary>
+            This method checks if the service is already created.
+            </summary>
+            <param name="serviceWriteDto"><see cref="T:WebApplication1.DTOS.ServiceWriteDto"/> to be found</param>
+            <returns>True if exists, False otherwise</returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceRepository.updateProfitService(System.Guid,System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.Implementations.ServiceRepository.entityToDtoMapper(WebApplication1.Models.ServiceTransport)">
+            <summary>
+             This method converts an entity (<see cref="T:WebApplication1.Models.ServiceTransport"/>)  into a dto (<see cref="T:WebApplication1.DTOS.Read.ServiceTransportReadDto"/>)
+            </summary>
+            <returns> of <see cref="T:WebApplication1.DTOS.Read.ServiceTransportReadDto"/> created </returns>
+        </member>
+        <member name="T:WebApplication1.Repository.UserRepository">
+            <summary>
+            This class represents a User Repository that contains all the necessary methods for User management.
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Repository.UserRepository.context">
+             <summary>
+            The DbContext instance that represents a session with the database that can be used to query, insert, update and drop
+             </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.UserRepository.#ctor(WebApplication1.Context.AppDbContext)">
+            <summary>
+            Constructor method for the User repository.
+            </summary>
+            <param name="databaseContext"> <see cref="!:DatabaseContext"/> of database </param>
+        </member>
+        <member name="M:WebApplication1.Repository.UserRepository.addUser(WebApplication1.Models.User,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.UserRepository.addUserTest(WebApplication1.Models.User,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.UserRepository.addUserDriver(WebApplication1.Models.User,System.Guid,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.UserRepository.getUser(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.UserRepository.removeUser(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.UserRepository.getUserLogin(WebApplication1.Models.UserLogin)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.UserRepository.getAllUsers">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Repository.UserRepository.updateUser(System.Guid,WebApplication1.DTOS.RegisterUserDto)">
+            <inheritdoc/>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:WebApplication1.Repository.UserRepository.getPathPhoto(System.String)" -->
+        <member name="M:WebApplication1.Repository.UserRepository.getAllAvailableDrivers">
+            <inheritdoc/>
+        </member>
+        <member name="T:WebApplication1.Repository.ILicenseRepository">
+            <summary>
+            This interface represents a License Repository that contains all the necessary methods for License management.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.ILicenseRepository.getLicence(System.Guid)">
+            <summary>
+            Returns a specific <see cref="T:WebApplication1.Models.License"/> by its id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of the <see cref="T:WebApplication1.Models.License"/> to find</param>
+            <returns>The chosen <see cref="T:WebApplication1.Models.License"/>, null if it doesn't exist</returns>
+        </member>
+        <member name="T:WebApplication1.Repository.IOrganizationRepository">
+            <summary>
+            This interface represents an Organization Repository that contains all the necessary methods for Organization management.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.IOrganizationRepository.addOrganization(WebApplication1.DTOS.OrganizationWriteDto)">
+            <summary>
+            Adds a <see cref="T:WebApplication1.Models.Organization"/> to the database.
+            </summary>
+            <param name="organization">to be added</param>
+            <returns>The added <see cref="T:WebApplication1.Models.Organization"/>, exception if the data matches an existing organization</returns>
+        </member>
+        <member name="M:WebApplication1.Repository.IOrganizationRepository.removeOrganization(System.Guid)">
+            <summary>
+            Remove a specific <see cref="T:WebApplication1.Models.Organization"/> by its id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of Organization to remove </param>
+        </member>
+        <member name="M:WebApplication1.Repository.IOrganizationRepository.getOrganization(System.Guid)">
+            <summary>
+            Returns a specific <see cref="T:WebApplication1.Models.Organization"/> by its id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of the <see cref="T:WebApplication1.Models.Organization"/> to find</param>
+            <returns>The chosen <see cref="T:WebApplication1.Models.Organization"/>, null if it doesn't exist </returns>
+        </member>
+        <member name="M:WebApplication1.Repository.IOrganizationRepository.getAllOrganizations">
+            <summary>
+            Returns all the existing <see cref="T:WebApplication1.Models.Organization"/>.
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="T:WebApplication1.Models.Organization" /></returns>
+        </member>
+        <member name="M:WebApplication1.Repository.IOrganizationRepository.updateOrganization(System.Guid,WebApplication1.DTOS.OrganizationWriteDto)">
+            <summary>
+            This method updates the data of a <see cref="T:WebApplication1.Models.Organization"/> in the database.
+            </summary>
+            <param name="organization"><see cref="T:WebApplication1.DTOS.OrganizationWriteDto"/> to be updated</param>
+            <param name="id"> Organization <see cref="T:System.Guid"/>to edit</param>
+        </member>
+        <member name="T:WebApplication1.Repository.IPathPhotoRepository">
+            <summary>
+            This interface represents a Image Repository that contains all the necessary methods for Image management.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.IPathPhotoRepository.addImage(WebApplication1.Models.PathPhoto)">
+            <summary>
+            This method adds a <see cref="T:WebApplication1.Models.PathPhoto"/> to the database.
+            </summary>
+            <param name="photo">to be added</param>
+            <returns>Added <see cref="T:WebApplication1.Models.PathPhoto"/></returns>
+        </member>
+        <member name="T:WebApplication1.Repository.Interfaces.IServiceCoordRepository">
+            <summary>
+            This interface represents a ServiceCoor Repository that contains all the necessary methods to save and list the coordinates of a service.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.IServiceCoordRepository.addServiceCoord(WebApplication1.DTOS.ServiceCoordWriteDto)">
+            <summary>
+            This method adds a <see cref="T:WebApplication1.Models.ServiceCoord"/> in the database.
+            </summary>
+            <param name="transportWrite">to be added</param>
+            <returns>The added <see cref="T:WebApplication1.Models.ServiceCoord"/>, null if the coordinates already exists </returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.IServiceCoordRepository.getAllServiceCoordByServiceId(System.Guid)">
+            <summary>
+            This method returns all coordinates <see cref="T:WebApplication1.Models.ServiceCoord"/> associated with a service.
+            </summary>
+            <param name="idService"> id of the service for which the coordinates are to be obtained</param>
+            <returns><see cref="T:System.Collections.Generic.List`1" /> of <see cref="T:WebApplication1.Models.ServiceCoord" /></returns>
+        </member>
+        <member name="T:WebApplication1.Repository.Interfaces.IServiceRepository">
+            <summary>
+            This interface represents a Service Repository that contains all the necessary methods for Service management.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.IServiceRepository.addServiceTransport(WebApplication1.DTOS.ServiceWriteDto)">
+            <summary>
+            This method adds a <see cref="T:WebApplication1.Models.ServiceTransport"/> to the database.
+            </summary>
+            <param name="serviceWriteDto">to be added</param>
+            <returns>The added <see cref="T:WebApplication1.Models.ServiceTransport"/>, null if the data corresponds to a service already created</returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.IServiceRepository.getAllServiceTransports">
+            <summary>
+            Returns all the existing <see cref="T:WebApplication1.Models.ServiceTransport"/>.
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.List`1" /> of <see cref="T:WebApplication1.DTOS.Read.ServiceTransportReadDto" /></returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.IServiceRepository.getServiceTransport(System.Guid)">
+            <summary>
+            Returns a specific <see cref="T:WebApplication1.Models.ServiceTransport"/> by its id.
+            </summary>
+            <param name="guid">The <see cref="T:System.Guid"/> of the <see cref="T:WebApplication1.Models.ServiceTransport"/> to find</param>
+            <returns>The chosen <see cref="T:WebApplication1.Models.ServiceTransport"/>, null if it doesn't exist</returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.IServiceRepository.updateStateService(System.Guid,WebApplication1.Global.Enumerations.ServiceStatus)">
+            <summary>
+            This method updates the state of service
+            </summary>
+            <param name="serviceStatus"><see cref="T:WebApplication1.Global.Enumerations.ServiceStatus"/> to be updated</param>
+            <param name="guid"> Service <see cref="T:System.Guid"/>to edit</param>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.IServiceRepository.updateProfitService(System.Guid,System.Double)">
+            <summary>
+            This method updates the profit of service
+            </summary>
+            <param name="value"><see cref="T:System.Double"/> value to add</param>
+            <param name="guid"> Service <see cref="T:System.Guid"/>to edit</param>
+        </member>
+        <member name="T:WebApplication1.Repository.Interfaces.ITransportReviewParametersRepository">
+            <summary>
+            This interface represents a TransportReviewParameters Repository that contains all the necessary methods to save and change parameters to analyze a transport
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.ITransportReviewParametersRepository.addTransportReviewParameters(WebApplication1.Models.TransportReviewParameters)">
+            <summary>
+            This endpoint adds a <see cref="T:WebApplication1.Models.TransportReviewParameters"/> to the database for transport review.
+            </summary>
+            <param name="transportReviewParameters">to be added</param>
+            <returns>The added <see cref="T:WebApplication1.Models.TransportReviewParameters"/></returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.ITransportReviewParametersRepository.getTransportReviewParameters">
+            <summary>
+            This endpoint returns the parameters for transport review
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.ITransportReviewParametersRepository.updateTransportReviewParameters(WebApplication1.Models.TransportReviewParameters,System.Guid)">
+            <summary>
+            This endpoint updates the parameters for transport review
+            </summary>
+            <param name="transportReviewParameters">to be updated</param>
+            <param name="id">The <see cref="T:System.Guid"/> of the <see cref="T:WebApplication1.Models.TransportReviewParameters"/> to update</param>
+        </member>
+        <member name="T:WebApplication1.Repository.Interfaces.ITruckBreakDownsRepository">
+            <summary>
+            This interface represents a TruckBreakDowns Repository that contains all the necessary methods for truck breakDowns management.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.ITruckBreakDownsRepository.addTruckBreakDown(WebApplication1.Models.TruckBreakDowns,System.Guid)">
+            <summary>
+            Adds a <see cref="T:WebApplication1.Models.TruckBreakDowns"/> to the database.
+            </summary>
+            <param name="truckBreakDowns">to be added</param>
+            <param name="idTruck"> >The <see cref="T:System.Guid"/> of truck </param>
+            <returns>Added <see cref="T:WebApplication1.Models.TruckBreakDowns"/>, exception if the truck doesn't exist or already have a truck breakdown that day</returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.ITruckBreakDownsRepository.getAllTruckBreakDowns">
+            <summary>
+            Returns all the existing <see cref="T:WebApplication1.Models.TruckBreakDowns"/>.
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="T:WebApplication1.Models.TruckBreakDowns" /></returns>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.ITruckBreakDownsRepository.deleteTruckBreakDown(System.Guid)">
+            <summary>
+            Removes a specific <see cref="T:WebApplication1.Models.TruckBreakDowns"/> by its id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of truck breakdown to remove </param>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.ITruckBreakDownsRepository.updateTruckBreakDown(System.Guid,WebApplication1.DTOS.TruckBreakDownsWriteDto,System.DateTime)">
+            <summary>
+            This method updates the data of a <see cref="T:WebApplication1.Models.TruckBreakDowns"/> in the database.
+            </summary>
+            <param name="truckBreakDownsWriteDto"><see cref="T:WebApplication1.DTOS.TruckBreakDownsWriteDto"/> to be updated</param>
+            <param name="dateTime"><see cref="T:System.DateTime"/> it occurs</param>
+            <param name="id"> TruckBreakDowns <see cref="T:System.Guid"/>to edit</param>
+        </member>
+        <member name="M:WebApplication1.Repository.Interfaces.ITruckBreakDownsRepository.getTruckBreakDowns(System.Guid)">
+            <summary>
+            Returns a specific <see cref="T:WebApplication1.Models.TruckBreakDowns"/> by its id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of the <see cref="T:WebApplication1.Models.TruckBreakDowns"/> to find</param>
+            <returns>The chosen <see cref="T:WebApplication1.Models.TruckBreakDowns"/>, null if the id does not exist</returns>
+        </member>
+        <member name="T:WebApplication1.Repository.ITransportRepository">
+            <summary>
+            This interface represents a Transport Repository that contains all the necessary methods for Transport management.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.ITransportRepository.addTransport(WebApplication1.DTOS.TransportWriteDto)">
+            <summary>
+            Adds a <see cref="T:WebApplication1.Models.Transport"/> to the database.
+            </summary>
+            <param name="transportWrite">to be added</param>
+            <returns>The added <see cref="T:WebApplication1.Models.Transport"/>, null if the transport already exists </returns>
+        </member>
+        <member name="M:WebApplication1.Repository.ITransportRepository.removeTransport(System.Guid)">
+            <summary>
+            Remove a specific <see cref="T:WebApplication1.Models.Transport"/> by its id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of Transport to remove </param>
+        </member>
+        <member name="M:WebApplication1.Repository.ITransportRepository.getTransport(System.Guid)">
+            <summary>
+            Returns a specific <see cref="T:WebApplication1.Models.Transport"/> by its id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of the <see cref="T:WebApplication1.Models.Transport"/> to find</param>
+            <returns>The chosen <see cref="T:WebApplication1.Models.User"/>, null if not</returns>
+        </member>
+        <member name="M:WebApplication1.Repository.ITransportRepository.update(System.Guid,WebApplication1.Global.Enumerations.Status)">
+            <summary>
+            This method updates the state of transport
+            </summary>
+            <param name="status"><see cref="T:WebApplication1.Global.Enumerations.Status"/> to be updated</param>
+            <param name="id"> Transport <see cref="T:System.Guid"/>to edit</param>
+        </member>
+        <member name="M:WebApplication1.Repository.ITransportRepository.getAllTransports">
+            <summary>
+            Returns all the existing <see cref="T:WebApplication1.Models.Transport"/>.
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="T:WebApplication1.Models.Transport" /></returns>
+        </member>
+        <member name="T:WebApplication1.Repository.ITruckRepository">
+            <summary>
+            This interface represents a Truck Repository that contains all the necessary methods for Truck management.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.ITruckRepository.addTruck(WebApplication1.DTOS.TruckWriteDto)">
+            <summary>
+            This method adds a <see cref="T:WebApplication1.Models.Truck"/> to the database.
+            </summary>
+            <param name="truckWriteDto">to be added</param>
+            <returns>The added <see cref="T:WebApplication1.Models.Truck"/>, exception if registration already exists or if the driver is already associated with another truck </returns>
+        </member>
+        <member name="M:WebApplication1.Repository.ITruckRepository.removeTruck(System.Guid)">
+            <summary>
+            This method removes a specific <see cref="T:WebApplication1.Models.Truck"/> by its id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of truck to remove </param>
+        </member>
+        <member name="M:WebApplication1.Repository.ITruckRepository.getTruck(System.Guid)">
+            <summary>
+            This method returns a specific <see cref="T:WebApplication1.Models.Truck"/> by its id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of the <see cref="T:WebApplication1.Models.Truck"/> to find</param>
+            <returns>The chosen <see cref="T:WebApplication1.Models.Truck"/>, null if it doesn't exist</returns>
+        </member>
+        <member name="M:WebApplication1.Repository.ITruckRepository.getAllTrucks">
+            <summary>
+            This method returns all active <see cref="T:WebApplication1.Models.Truck"/>.
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="T:WebApplication1.Models.Truck" /></returns>
+        </member>
+        <member name="M:WebApplication1.Repository.ITruckRepository.getAllTrucksWithoutRegistrationInSystem">
+            <summary>
+            This method returns all trucks from the XML file that are not registered
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.List`1" /> of <see cref="T:WebApplication1.Global.Utils.TruckDetailsXml" /></returns>    
+        </member>
+        <member name="M:WebApplication1.Repository.ITruckRepository.getTrucksByCategory(WebApplication1.Global.Enumerations.TruckCategory)">
+            <summary>
+            This method returns all the existing <see cref="T:WebApplication1.Models.Truck"/> by category.
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.List`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" /></returns>
+        </member>
+        <member name="M:WebApplication1.Repository.ITruckRepository.getCapacityOfTruck(System.String)">
+            <summary>
+             This method gets the capacity of truck stored in the XML file
+            </summary>
+            <param name="matricula">truck registration to find </param>
+            <returns><see cref="T:System.Double" /> with the capacity, -1  if registration does not match to a truck</returns>
+        </member>
+        <member name="T:WebApplication1.Repository.IUserRepository">
+            <summary>
+            This interface represents a User Repository that contains all the necessary methods for User management.
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.IUserRepository.addUser(WebApplication1.Models.User,System.Guid)">
+            <summary>
+            Adds a <see cref="T:WebApplication1.Models.User"/> to the database.
+            </summary>
+            <param name="user">to be added</param>
+            <param name="idOrganization"> >The <see cref="T:System.Guid"/> of organization </param>
+            <returns>Added <see cref="T:WebApplication1.Models.User"/>, exception if username already exists</returns>
+        </member>
+        <member name="M:WebApplication1.Repository.IUserRepository.removeUser(System.Guid)">
+            <summary>
+            Removes a specific <see cref="T:WebApplication1.Models.User"/> by its id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of user to remove </param>
+        </member>
+        <member name="M:WebApplication1.Repository.IUserRepository.getUser(System.Guid)">
+            <summary>
+            Returns a specific <see cref="T:WebApplication1.Models.User"/> by its id.
+            </summary>
+            <param name="id">The <see cref="T:System.Guid"/> of the <see cref="T:WebApplication1.Models.User"/> to find</param>
+            <returns>The chosen <see cref="T:WebApplication1.Models.User"/>, null if it doesn't exist</returns>
+        </member>
+        <member name="M:WebApplication1.Repository.IUserRepository.getAllUsers">
+            <summary>
+            Returns all the existing <see cref="T:WebApplication1.Models.User"/>.
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1" /> of <see cref="T:WebApplication1.Models.User" /></returns>
+        </member>
+        <member name="M:WebApplication1.Repository.IUserRepository.addUserDriver(WebApplication1.Models.User,System.Guid,System.Int32)">
+            <summary>
+            Adds a <see cref="T:WebApplication1.Models.User"/> of the type driver to the database. Only used in integration tests
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Repository.IUserRepository.addUserTest(WebApplication1.Models.User,System.Guid)">
+            <summary>
+            Adds a <see cref="T:WebApplication1.Models.User"/> to the database. Only used in integration tests
+            </summary>
+            <param name="user">to be added</param>
+            <param name="idOrganization">organization id</param>
+        </member>
+        <member name="M:WebApplication1.Repository.IUserRepository.updateUser(System.Guid,WebApplication1.DTOS.RegisterUserDto)">
+            <summary>
+            This method updates the data of a <see cref="T:WebApplication1.Models.User"/> in the database.
+            </summary>
+            <param name="user"><see cref="T:WebApplication1.DTOS.RegisterUserDto"/> to be updated</param>
+            <param name="id"> User <see cref="T:System.Guid"/>to edit</param>
+        </member>
+        <member name="M:WebApplication1.Repository.IUserRepository.getUserLogin(WebApplication1.Models.UserLogin)">
+            <summary>
+            Gets an specific <see cref="T:WebApplication1.Models.User"/> given an specific <see cref="!:Login"/>
+            </summary>
+            <param name="login">The login to find the <see cref="T:WebApplication1.Models.User"/></param>
+            <returns>The <see cref="T:WebApplication1.Models.User"/> for the Login </returns>
+        </member>
+        <member name="M:WebApplication1.Repository.IUserRepository.getAllAvailableDrivers">
+            <summary>
+            Returns all existing drivers that do not have an associated truck.
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.List`1" /> of <see cref="T:WebApplication1.DTOS.Read.UserReadDto" /></returns>
+        </member>
+        <member name="T:WebApplication1.Security.PasswordEncrypter">
+            <summary>
+            The PasswordEncrypter class contains the necessary methods for encrypting and compare passwords
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Security.PasswordEncrypter.encryptPassword(System.String)">
+            <summary>
+            This method returns a encrypted password.
+            </summary>
+            <param name="password">Password to be encrypted</param>
+            <returns>String with encrypted password</returns>
+        </member>
+        <member name="M:WebApplication1.Security.PasswordEncrypter.verifyPassword(System.String,System.String)">
+            <summary>
+            This method compares a password string with an encrypted password.
+            </summary>
+            <param name="password">Password not encrypted</param>
+            <param name="passwordEncrypted">Password encrypted</param>
+            <returns>"true" when the passwords match, "false" when the passwords do not match</returns>
+        </member>
+        <member name="T:WebApplication1.Services.DistanceService">
+            <summary>
+            This class contains the methods that allows get the information between two locations
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Services.DistanceService.httpClientFactory">
+            <summary>
+            To create <see cref="T:System.Net.Http.HttpClient"/>  instances
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Services.DistanceService.getDistanceAndEstimatedTimeWhitParams(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:WebApplication1.Services.HolidayService">
+            <summary>
+            Class that lets you know if a date corresponds to a holiday
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Services.HolidayService.httpClientFactory">
+            <summary>
+            To create <see cref="T:System.Net.Http.HttpClient"/>  instances
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Services.HolidayService.dateIsHoliday(System.Int32,System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.HolidayService.getJsonObject(System.String)">
+            <summary>
+             This method processes the Holidays API response
+            </summary>
+            <returns>JObject with response, null if the date is not a holiday </returns>
+        </member>
+        <member name="T:WebApplication1.Services.PositionStackService">
+            <summary>
+            This class contains the methods that interacts with external APIs and gets information about addresses  
+            </summary>
+        </member>
+        <member name="F:WebApplication1.Services.PositionStackService.httpClientFactory">
+            <summary>
+            To create <see cref="T:System.Net.Http.HttpClient"/>  instances
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Services.PositionStackService.getCoordinatesByAddress(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.PositionStackService.getAddressByCoordinates(WebApplication1.DTOS.Read.CoordReadDto)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.PositionStackService.getJsonObject(System.String)">
+            <summary>
+             This method processes the PositionStack API response
+            </summary>
+            <returns>JObject with response, null if the date is not a holiday </returns>
+        </member>
+        <member name="M:WebApplication1.Services.PositionStackService.getPostalCode(WebApplication1.DTOS.Read.CoordReadDto)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WebApplication1.Services.ScoreService">
+            <summary>
+            This class contains all the methods needed to score trucks
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Services.ScoreService.assignsScoreByTankVolume(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.ScoreService.assignsScoreOccupiedVolume(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.ScoreService.assignsScoreValueSpendForTruckCistern(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.ScoreService.assignsScoreValueSpend(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.Boolean,System.Boolean,WebApplication1.Models.TransportReviewParameters)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WebApplication1.Services.SelectionAlgorithmService">
+            <summary>
+            This class contains all the methods necessary to analyze a transport and choose the best truck to do it
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.#ctor(WebApplication1.Repository.ITransportRepository,WebApplication1.Global.Utils.IDistanceService,WebApplication1.Repository.ITruckRepository,WebApplication1.Repository.Implementations.IAbsenceRepository,WebApplication1.Repository.Interfaces.ITruckBreakDownsRepository,WebApplication1.Repository.Interfaces.ITransportReviewParametersRepository,WebApplication1.Services.IHolidayService,WebApplication1.Repository.Interfaces.IServiceRepository,WebApplication1.Services.IScoreService)">
+            <summary>
+            This constructor inject the truck repository, the distance service, the transport repository, the service repository, the holiday service, the absence repository and truck breakdowns to be use by the review service.
+            </summary>
+            <param name="transportRepository"> transport repository</param>
+            <param name="distanceService"> distance service</param>
+            <param name="truckRepository"> truck repository</param>
+            <param name="truckBreakDownsRepository"> truck break downs repository</param>
+            <param name="transportReviewParametersRepository"></param>
+            <param name="holidayService"> holiday service</param>
+            <param name="serviceRepository">service repository</param>        
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.selectionAndAnalysisAlgorithm(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.getParametersOfReview">
+            <summary>
+            This method returns parameters for transport review, in case it doesn't exist creates default
+            </summary>
+            <param name="user"><see cref="T:WebApplication1.Models.User"/> to be updated</param>
+            <param name="id"> User <see cref="T:System.Guid"/>to edit</param>
+            <returns>The <see cref="T:WebApplication1.Models.TransportReviewParameters"/> with the parameters </returns>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.calculatesFinalValueByTruck(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.DateTime)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.calculateFinalServiceValueAndSelectTruck(WebApplication1.DTOS.Read.ReviewTransportDto)">
+            <summary>
+             This method calculates (if possible) the expected profit for the transport and selects the best truck or trucks 
+            </summary>
+            <returns> <see cref="T:WebApplication1.DTOS.Read.ReviewTransportDto" /> with the final results. Service is possible? Does the service cause financial loss? Does the service make a profit? </returns>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.methodThinksTwice(WebApplication1.DTOS.Read.ReviewTransportDto)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.analyzeTrucks(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.analyzeTrucksWithCategoryCistern(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.processInformationAboutTruck(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.Double,System.Double)">
+            <summary>
+             This method processes information about a truck to determine if the truck is available for a transport and what the estimated cost of doing so is
+            </summary>
+            <returns> <see cref="T:WebApplication1.DTOS.Read.ReviewTransportDto"/>with the information, exception if the id entered is not valid</returns>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.loadDataToDto(System.Guid)">
+            <summary>
+             This method loads all the information needed to analyze a service
+            </summary>
+            <returns> <see cref="T:WebApplication1.DTOS.Read.ReviewTransportDto"/>with the information, exception if the id entered is not valid</returns>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.getNumberTruckBreakDownsByTruckInTheCurrentYear(System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.calculeValueSpend(System.Double,System.Double,System.Double,System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.isAbsent(System.DateTime,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.truckIsAbsent(System.DateTime,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.truckAlreadyHasService(System.DateTime,System.Guid)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.isAvailableToService(System.Boolean,System.Boolean,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.getLitresConsumption(System.Double,System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.getTotalNumberKmsOfRoute(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.getOccupiedVolumePercentage(System.Double,System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.getAllTruckInformation(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.disableTrucks(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.analyzeTruckBreakDowns(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.dateIsHoliday(System.Int32,System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.sortListTrucksByEstimatedCostOfTransport(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.sortListTrucksByFitness(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.sortListTrucksByOccupiedVolume(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.sortListTrucksByTankVolume(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.adjustOccupiedThankVolume(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckReadDto},System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},WebApplication1.DTOS.Read.ReviewTransportDto,System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="M:WebApplication1.Services.SelectionAlgorithmService.adjustOccupiedVolume(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckReadDto},System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.Double)">
+            <inheritdoc/>
+        </member>
+        <member name="T:WebApplication1.Services.IHolidayService">
+            <summary>
+            This interface contains the methods to know if a date is a holiday
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Services.IHolidayService.dateIsHoliday(System.Int32,System.Int32,System.Int32)">
+            <summary>
+             This method checks if a date is a holiday in Portugal
+            </summary>
+            <returns> true if it's a holiday, false otherwise</returns>
+        </member>
+        <member name="T:WebApplication1.Services.IPositionStackService">
+            <summary>
+            This interface contains the methods that interacts with external APIs and gets information about addresses  
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Services.IPositionStackService.getCoordinatesByAddress(System.String)">
+            <summary>
+            This method gets the coordinates of an address
+            </summary>
+            <param name="name"> the name of address</param>
+            <returns>The address coordinates, null if http request response is empty</returns>
+        </member>
+        <member name="M:WebApplication1.Services.IPositionStackService.getAddressByCoordinates(WebApplication1.DTOS.Read.CoordReadDto)">
+            <summary>
+             This method gets the address by gets address by its coordinates
+            </summary>
+            <returns> String with the location given by the coordinates</returns>
+        </member>
+        <member name="M:WebApplication1.Services.IPositionStackService.getPostalCode(WebApplication1.DTOS.Read.CoordReadDto)">
+            <summary>
+             This method gets the postal code by gets address by its coordinates
+            </summary>
+            <returns> String with the postal code given by the coordinates</returns>
+        </member>
+        <member name="T:WebApplication1.Services.IScoreService">
+            <summary>
+            This interface contains all the methods needed to score trucks
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Services.IScoreService.assignsScoreByTankVolume(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <summary>
+             This method assigns the score value to each truck (by tank volume)
+            </summary>
+            <param name="listTrucksByTankVolume"> truck list</param>
+            <returns><see cref="T:System.Collections.Generic.IList`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" />with the new values of each truck</returns>
+        </member>
+        <member name="M:WebApplication1.Services.IScoreService.assignsScoreOccupiedVolume(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <summary>
+             This method assigns the score value to each truck (by occupied volume)
+            </summary>
+             <param name="listTrucksByOccupiedVolume"> truck list</param>
+            <returns><see cref="T:System.Collections.Generic.IList`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" />with the new values of each truck</returns>
+        </member>
+        <member name="M:WebApplication1.Services.IScoreService.assignsScoreValueSpendForTruckCistern(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.Boolean,System.Boolean)">
+            <summary>
+             This method assigns the score value to each truck (by amount spent on transport)
+            </summary>
+            <param name="listTrucksByEstimatedCostOfCisternTruck"> truck list</param>
+            <param name="firstAvaliation"> first Avalaition </param>
+            <returns><see cref="T:System.Collections.Generic.IList`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" /> with the new values of each truck</returns>
+        </member>
+        <member name="M:WebApplication1.Services.IScoreService.assignsScoreValueSpend(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.Boolean,System.Boolean,WebApplication1.Models.TransportReviewParameters)">
+            <summary>
+             This method assigns the score value to each truck (by amount spent on transport)
+            </summary>
+            <param name="listTrucksByEstimatedCostOfTransport"> truck list</param>
+            <returns><see cref="T:System.Collections.Generic.IList`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" /> with the new values of each truck</returns>
+        </member>
+        <member name="T:WebApplication1.Services.ISelectionAlgorithmService">
+            <summary>
+            This interface contains the transport analysis and truck selection algorithm
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.selectionAndAnalysisAlgorithm(System.Guid)">
+            <summary>
+             This method analyzes a transport, checks if it is profitable and selects the best truck to carry it out
+            </summary>
+            <param name="idTransport">The <see cref="T:System.Guid"/> of transport to be analyzed</param>
+             <returns><see cref="T:WebApplication1.DTOS.Read.ReviewTransportDto" /> with the results of the analysis</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.sortListTrucksByTankVolume(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <summary>
+             This method sorts a list of trucks by tank volume
+            </summary>
+            <param name="listToSort">sorting list</param>
+            <returns>Sorted<see cref="T:System.Collections.Generic.IList`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" /></returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.sortListTrucksByOccupiedVolume(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <summary>
+             This method sorts a list of trucks by occupied volume
+            </summary>
+            <returns>Sorted<see cref="T:System.Collections.Generic.IList`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" /></returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.sortListTrucksByFitness(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <summary>
+             This method sorts a list of trucks by score
+            </summary>
+            <param name="listToSort">sorting list</param>
+            <returns>Sorted<see cref="T:System.Collections.Generic.IList`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" /></returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.sortListTrucksByEstimatedCostOfTransport(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <summary>
+             This method order by descending a list of trucks by estimated cost of transport
+            </summary>
+            <param name="listToSort">sorting list</param>
+            <returns>Sorted<see cref="T:System.Collections.Generic.IList`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" /></returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.analyzeTruckBreakDowns(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <summary>
+             This method removes score according to the number of breakdowns
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.IList`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" />with the new values of each truck</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.disableTrucks(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto})">
+            <summary>
+              This method makes all trucks unavailable for a service
+            </summary>
+            <returns> List of trucks with updated value </returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.getAllTruckInformation(System.String)">
+            <summary>
+             This method gets the information stored in the XML file about the truck
+            </summary>
+            <param name="matricula">truck registration to find </param>
+            <returns><see cref="!:TruckDetails" /> with information, null if registration does not match to a truck</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.getOccupiedVolumePercentage(System.Double,System.Double)">
+            <summary>
+             This method calculates the percentage between what is needed for transport and the capacity of the truck
+            </summary>
+            <param name="truckVolume">transport volume</param>
+            <param name="transportVolume">truck maximum volume</param>
+            <returns> Double with the percentage </returns>  
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.getTotalNumberKmsOfRoute(System.String,System.String,System.String)">
+            <summary>
+            This method gets the kms the total kilometers of the route
+            </summary>
+            <returns> Double with the total kms of the route</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.getLitresConsumption(System.Double,System.Double)">
+            <summary>
+             This method calculates the fuel spent for transport
+            </summary>
+            <returns> Double with fuel spent</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.isAvailableToService(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+             This method compares two boolean variables
+            </summary>
+            <returns> True if both are false, false otherwise</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.truckAlreadyHasService(System.DateTime,System.Guid)">
+            <summary>
+             This method checks if the truck is already associated with a service on that day
+            </summary>
+            <param name="dateTime">date</param>
+             <param name="idDriver">id of truck</param>
+            <returns> True if yes, False otherwise</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.truckIsAbsent(System.DateTime,System.Guid)">
+            <summary>
+             This method checks that the truck has absence on a date
+            </summary>
+            <param name="dateTime">date</param>
+             <param name="idDriver">id of truck</param>
+            <returns> True if yes, False otherwise</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.isAbsent(System.DateTime,System.Guid)">
+            <summary>
+             This method checks that the driver has absence on a date
+            </summary>
+            <param name="dateTime">date</param>
+             <param name="idDriver">id of driver</param>
+            <returns> True if yes, False otherwise</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.calculeValueSpend(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+             This method calculates the amount spent on fuel and tolls
+            </summary>
+            <returns> Double with Amount spent </returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.getNumberTruckBreakDownsByTruckInTheCurrentYear(System.Guid)">
+            <summary>
+             This method gets the number of breakdowns of a truck in the current year
+            </summary>
+            <returns>Number of breakdowns of truck in the current year </returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.analyzeTrucksWithCategoryCistern(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.Boolean)">
+            <summary>
+             This method analyzes the trucks for a transport (with Cistern category) and assigns a score
+            </summary>
+            <param name="listToAnalyze">List of trucks to analyze</param>
+            <returns><see cref="T:System.Collections.Generic.IList`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" />with the result of the analysis and the score assigned</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.analyzeTrucks(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.Boolean)">
+            <summary>
+             This method analyzes the trucks for a transport (with Dump, Refrigerator or Container category) and assigns a score
+            </summary>
+            <param name="listToAnalyze">List of trucks to analyze</param>
+            <returns><see cref="T:System.Collections.Generic.IList`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" />with the result of the analysis and the score assigned</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.dateIsHoliday(System.Int32,System.Int32,System.Int32)">
+            <summary>
+             This method checks if a date is a holiday in Portugal
+            </summary>
+            <returns> true if it's a holiday, false otherwise</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.calculatesFinalValueByTruck(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.DateTime)">
+            <summary>
+             This calculates the final value of the service by the truck
+            </summary>
+            <returns> <see cref="T:System.Collections.Generic.IList`1" /> of <see cref="T:WebApplication1.DTOS.Read.TruckForReviewReadDto" /> with the final values of the cost of the service by truck</returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.adjustOccupiedThankVolume(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckReadDto},System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},WebApplication1.DTOS.Read.ReviewTransportDto,System.Double)">
+            <summary>
+             This method adjusts the volume of the tanker trucks
+            </summary>
+            <returns> List of trucks with updated value </returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.adjustOccupiedVolume(System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckReadDto},System.Collections.Generic.List{WebApplication1.DTOS.Read.TruckForReviewReadDto},System.Double)">
+            <summary>
+             This method adjusts the occupancy of the truck
+            </summary>
+            <returns> List of trucks with updated value </returns>
+        </member>
+        <member name="M:WebApplication1.Services.ISelectionAlgorithmService.methodThinksTwice(WebApplication1.DTOS.Read.ReviewTransportDto)">
+            <summary>
+            This method checks if the customer has a positive history
+            </summary>
+            <param name="reviewTransportDto"><see cref="T:WebApplication1.DTOS.Read.ReviewTransportDto"/> to be verified</param>
+            <returns>Boolean <see name="alertManagerForGoodHistory"/> with value True if it has a good history, variable <see name="alertManagerForGoodHistory"/> with value False if the history is negative or null </returns>
+        </member>
+        <member name="T:WebApplication1.Services.TokenService">
+            <summary>
+            This class contains the method that generate JWT Tokens
+            </summary>
+        </member>
+        <member name="M:WebApplication1.Services.TokenService.generateToken(WebApplication1.Models.User)">
+            <summary>
+            Generates an token for an specific <see cref="T:WebApplication1.Models.User"/>
+            </summary>
+            <param name="user"><see cref="T:WebApplication1.Models.User"/> to generate the token</param>
+            <returns> A string representing the token for the user</returns>
+        </member>
+    </members>
+</doc>
